@@ -282,7 +282,7 @@ module.exports = function (grunt) {
                 'coffee',
                 'createDefaultTemplate',
                 'jst',
-                'compass:server',
+               // 'compass:server',
                 'connect:test:keepalive'
             ]);
         }
@@ -292,7 +292,7 @@ module.exports = function (grunt) {
             'coffee:dist',
             'createDefaultTemplate',
             'jst',
-            'compass:server',
+           // 'compass:server',
             'connect:livereload',
             'open',
             'watch'
@@ -304,7 +304,7 @@ module.exports = function (grunt) {
         'coffee',
         'createDefaultTemplate',
         'jst',
-        'compass',
+       // 'compass',
         'connect:test',
         'mocha'
     ]);
@@ -314,7 +314,7 @@ module.exports = function (grunt) {
         'coffee',
         'createDefaultTemplate',
         'jst',
-        'compass:dist',
+      //  'compass:dist',
         'useminPrepare',
         'imagemin',
         'htmlmin',
