@@ -327,7 +327,7 @@ module.exports = function (grunt) {
         'jst',
         'useminPrepare',
         'requirejs',
-        'imagemin',
+        //'imagemin',
         'htmlmin',
         'concat',
         'cssmin',
