@@ -333,7 +333,7 @@ module.exports = function (grunt) {
         'handlebars',
         'useminPrepare',
         'requirejs',
-        'imagemin',
+       // 'imagemin',
         'htmlmin',
         'concat',
         'cssmin',
