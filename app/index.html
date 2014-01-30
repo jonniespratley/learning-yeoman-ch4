@@ -32,7 +32,7 @@
             <li>Backbone.js</li>
             <li>Underscore.js</li>
             <li>Modernizr</li>
-
+            <li>RequireJS</li>
           </ul>
         </div>
 
@@ -47,15 +47,8 @@
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
 
-        <!-- build:js scripts/vendor.js -->
-        <script src="bower_components/jquery/jquery.js"></script>
-        <script src="bower_components/underscore/underscore.js"></script>
-        <script src="bower_components/backbone/backbone.js"></script>
-        <!-- endbuild -->
-
-        <!-- build:js({.tmp,app}) scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <script src="scripts/templates.js"></script>
+        <!-- build:js scripts/main.js -->
+        <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->
 </body>
 </html>
