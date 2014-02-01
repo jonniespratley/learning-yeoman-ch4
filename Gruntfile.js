@@ -61,7 +61,7 @@ module.exports = function (grunt) {
             },
             test: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
-                tasks: ['test']
+                tasks: ['test:true']
             }
         },
         connect: {
@@ -107,6 +107,9 @@ module.exports = function (grunt) {
         open: {
             server: {
                 path: 'http://localhost:<%= connect.options.port %>'
+            },
+            test: {
+                path: 'http://localhost:<%= connect.test.options.port %>'
             }
         },
         clean: {
@@ -291,8 +294,13 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('server', function (target) {
+        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+        grunt.task.run(['serve' + (target ? ':' + target : '')]);
+    });
+
+    grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
-            return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+            return grunt.task.run(['build', 'open:server', 'connect:dist:keepalive']);
         }
 
         if (target === 'test') {
@@ -302,6 +310,7 @@ module.exports = function (grunt) {
                 'createDefaultTemplate',
                 'handlebars',
                 'connect:test',
+                'open:test',
                 'watch:livereload'
             ]);
         }
@@ -312,19 +321,30 @@ module.exports = function (grunt) {
             'createDefaultTemplate',
             'handlebars',
             'connect:livereload',
-            'open',
-            'watch'
+            'open:server',
+            'focus:server'
         ]);
     });
 
-    grunt.registerTask('test', [
-        'clean:server',
-        'coffee',
-        'createDefaultTemplate',
-        'handlebars',
-        'jasmine',
-        'watch:test'
-    ]);
+    grunt.registerTask('test', function (isConnected) {
+        isConnected = Boolean(isConnected);
+        var testTasks = [
+                'clean:server',
+                'coffee',
+                'createDefaultTemplate',
+                'handlebars',
+                'jasmine',
+                'watch:test'
+            ];
+
+        if(!isConnected) {
+            return grunt.task.run(testTasks);
+        } else {
+            // already connected so not going to connect again, remove the connect:test task
+            testTasks.splice(testTasks.indexOf('connect:test'), 1);
+            return grunt.task.run(testTasks);
+        }
+    });
 
     grunt.registerTask('build', [
         'clean:dist',
@@ -333,7 +353,7 @@ module.exports = function (grunt) {
         'handlebars',
         'useminPrepare',
         'requirejs',
-       // 'imagemin',
+      //  'imagemin',
         'htmlmin',
         'concat',
         'cssmin',
