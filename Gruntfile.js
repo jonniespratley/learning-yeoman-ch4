@@ -130,14 +130,23 @@ module.exports = function (grunt) {
         },
         jasmine: {
             all:{
-                src : '/scripts/{,*/}*.js',
+                src : [
+								'.tmp/{,*/}*.js',
+								'/scripts/{,*/}*.js'
+								],
                 options: {
                     keepRunner: true,
-                    specs : 'test/spec/**/*.js',
+                    specs : [
+										'.tmp/spec/**/*.js',
+										'test/spec/**/*.js'
+										],
                     vendor : [
                         '<%= yeoman.app %>/bower_components/jquery/jquery.js',
                         '<%= yeoman.app %>/bower_components/underscore/underscore.js',
                         '<%= yeoman.app %>/bower_components/backbone/backbone.js',
+                       '<%= yeoman.app %>/bower_components/requirejs/require.js',
+												//'test/bower_components/jasmine/lib/jasmine-core/jasmine.js',
+												'test/bower_components/jasmine-jquery/lib/jasmine-jquery.js',
                         '.tmp/scripts/templates.js'
                     ]
                 }
@@ -322,7 +331,7 @@ module.exports = function (grunt) {
             'handlebars',
             'connect:livereload',
             'open:server',
-            'focus:server'
+            //'focus:server'
         ]);
     });
 
@@ -364,7 +373,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('default', [
-        'jshint',
+       // 'jshint',
         'test',
         'build'
     ]);

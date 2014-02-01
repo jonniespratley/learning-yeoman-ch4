@@ -21,5 +21,7 @@ require.config
 
 require [
   'backbone'
-], (Backbone) ->
+  'app'
+], (Backbone, App) ->
   Backbone.history.start()
+  window.App = App.init()
