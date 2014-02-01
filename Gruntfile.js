@@ -331,7 +331,7 @@ module.exports = function (grunt) {
             'handlebars',
             'connect:livereload',
             'open:server',
-            //'focus:server'
+            'focus:server'
         ]);
     });
 
