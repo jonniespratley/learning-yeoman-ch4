@@ -5,9 +5,11 @@ This is the repository for the Learning Yeoman Chapter 4 tutorial.
 
 ![Build](https://travis-ci.org/jonniespratley/learning-yeoman-ch4.png)
 
-
 # Chapter 4: My Backbone Project
 
+![image](https://dl.dropboxusercontent.com/u/26906414/cdn/img/learning-yeoman-backbone.png)
+
+## Outline
 
 * Overview
 	* BackboneJS Concepts
@@ -43,6 +45,10 @@ This is the repository for the Learning Yeoman Chapter 4 tutorial.
 		* Index
 			* Posts
 			* Post Detail
+
+
+## Intro
+The topics cove in this chapter.
 			
 			
 ## Overview
