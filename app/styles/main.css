@@ -2,7 +2,27 @@ body {
     background: #fafafa;
 }
 
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
+
+
+body {
+
+    padding: 10px 25px;
 }
+
+.jumbotron {
+    text-transform: uppercase;
+    text-align: center;
+    font-family:'Droid Sans',sans-serif;
+}
+.jumbotron h1{
+    font-size:2em;
+    font-family:'Droid Sans',sans-serif;
+}
+.jumbotron img{
+    margin: 15px auto;
+}
+
+.post img{
+    width:55px;
+}
+
