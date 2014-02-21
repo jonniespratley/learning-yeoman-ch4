@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5dba6fac-8b98-4dc7-9d4e-7c0c908e2fe3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/routes/app.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/views/app.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/spec/app.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/templates/app.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/views/list.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/templates/list.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/views/listitem.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/templates/listitem.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/models/post.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/views/post.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/templates/post.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/collections/posts.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/views/posts.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/templates/posts.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.css" afterPath="$PROJECT_DIR$/app/styles/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="learning-yeoman-ch4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,11 +54,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="95" selection-end="95" vertical-scroll-proportion="0.25570777" vertical-offset="0" max-vertical-offset="438">
+            <state line="8" column="0" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="196">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="39" selection-start="1908" selection-end="1908" vertical-scroll-proportion="0.73134327" vertical-offset="294" max-vertical-offset="1694">
+              <folding>
+                <marker date="1392869577000" expanded="true" signature="2790:3153" placeholder="..." />
+                <marker date="1392869577000" expanded="true" signature="2851:2970" placeholder="..." />
+                <marker date="1392869577000" expanded="true" signature="3011:3135" placeholder="..." />
+                <marker date="1392869577000" expanded="true" signature="3273:3736" placeholder="..." />
+                <marker date="1392869577000" expanded="true" signature="3334:3476" placeholder="..." />
+                <marker date="1392869577000" expanded="true" signature="3535:3713" placeholder="..." />
+                <marker date="1392869577000" expanded="true" signature="3572:3688" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,8 +94,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/Gruntfile.js" />
-        <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/.yo-rc.json" />
+        <option value="$PROJECT_DIR$/app/index.html" />
       </list>
     </option>
   </component>
@@ -147,6 +147,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="learning-yeoman-ch4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-yeoman-ch4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-yeoman-ch4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-yeoman-ch4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-yeoman-ch4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-yeoman-ch4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-yeoman-ch4" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -298,8 +352,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="95" selection-end="95" vertical-scroll-proportion="0.25570777" vertical-offset="0" max-vertical-offset="438">
+        <state line="8" column="0" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="196">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="39" selection-start="1908" selection-end="1908" vertical-scroll-proportion="0.73134327" vertical-offset="294" max-vertical-offset="1694">
+          <folding>
+            <marker date="1392869577000" expanded="true" signature="2790:3153" placeholder="..." />
+            <marker date="1392869577000" expanded="true" signature="2851:2970" placeholder="..." />
+            <marker date="1392869577000" expanded="true" signature="3011:3135" placeholder="..." />
+            <marker date="1392869577000" expanded="true" signature="3273:3736" placeholder="..." />
+            <marker date="1392869577000" expanded="true" signature="3334:3476" placeholder="..." />
+            <marker date="1392869577000" expanded="true" signature="3535:3713" placeholder="..." />
+            <marker date="1392869577000" expanded="true" signature="3572:3688" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
