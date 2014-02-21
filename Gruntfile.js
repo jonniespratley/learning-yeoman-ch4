@@ -144,6 +144,10 @@ module.exports = function (grunt) {
             }
         },
         coffee: {
+						options: {
+							bare: true,
+							sourceMap: true
+						},
             dist: {
                 files: [{
                     // rather than compiling multiple files here you should
