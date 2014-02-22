@@ -315,8 +315,8 @@ module.exports = function (grunt) {
                 'createDefaultTemplate',
                 'handlebars',
                 'connect:test',
-                'open:test',
-                'watch:livereload'
+                'open:test'
+               // 'watch:livereload'
             ]);
         }
 
@@ -339,7 +339,7 @@ module.exports = function (grunt) {
                 'createDefaultTemplate',
                 'handlebars',
                 'jasmine',
-                'watch:test'
+               // 'watch:test'
             ];
             
         if(!isConnected) {
