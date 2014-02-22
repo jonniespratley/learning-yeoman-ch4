@@ -136,9 +136,10 @@ module.exports = function (grunt) {
                     specs : 'test/spec/**/*.js',
                     vendor : [
                         '<%= yeoman.app %>/bower_components/jquery/jquery.js',
+                        '<%= yeoman.app %>/bower_components/requirejs/require.js',
                         '<%= yeoman.app %>/bower_components/underscore/underscore.js',
                         '<%= yeoman.app %>/bower_components/backbone/backbone.js',
-                        '.tmp/scripts/templates.js'
+                        //'.tmp/scripts/templates.js'
                     ]
                 }
             }
@@ -146,7 +147,7 @@ module.exports = function (grunt) {
         coffee: {
 						options: {
 							bare: true,
-							sourceMap: true
+							sourceMap: false
 						},
             dist: {
                 files: [{
