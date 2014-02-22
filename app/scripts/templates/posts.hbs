@@ -1,2 +1,12 @@
 <legend>Posts</legend>
-<ol class="media-list posts list-group"></ol>
+<ol class="media-list posts list-group">
+{{#each results}}
+	<li>
+	Item
+	</li>
+{{/each}}
+{{log "Look at me!"}}
+{{#each results}}
+  {{@index}}: {{this}}
+{{/each}}
+</ol>

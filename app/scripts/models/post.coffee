@@ -1,6 +1,7 @@
 define ['underscore', 'backbone'], (_, Backbone) ->
 	'use strict'
 	class PostModel extends Backbone.Model
+		idAttribute: '_id'
 		url: ->
 			'http://jonniespratley.me:8181/api/v2/learning-yeoman/posts/'+ @id
 		defaults:
@@ -16,7 +17,6 @@ define ['underscore', 'backbone'], (_, Backbone) ->
 		parse : (response) ->
 			App.log('Model parse:', response)
 			#@set( response )
-			response.id = response._id
 			return response
 		
 	

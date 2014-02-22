@@ -31,6 +31,7 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 			@currentView = view
 			#$(@el).html('<div/>').attr('class', 'page');
 			@currentView.render()
+			#$('.pages').html(@currentView.$el)
 			#$(@el).html(App.currentView.render().el)
 			#$(@el).html("<div data-view-cid='#{view.cid}'></div>");
 			###

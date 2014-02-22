@@ -6,7 +6,7 @@ define ['jquery', 'underscore', 'backbone','templates'], ($, _, Backbone, JST) -
 			console.log 'initialize About'
 			console.log @
 		render: () ->
-			@$el.html(@template)
+			@$el.html(@template(title: 'About'))
 			return @
 		
 	
