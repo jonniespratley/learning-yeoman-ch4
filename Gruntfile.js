@@ -136,14 +136,19 @@ module.exports = function (grunt) {
                     specs : 'test/spec/**/*.js',
                     vendor : [
                         '<%= yeoman.app %>/bower_components/jquery/jquery.js',
+                        '<%= yeoman.app %>/bower_components/requirejs/require.js',
                         '<%= yeoman.app %>/bower_components/underscore/underscore.js',
                         '<%= yeoman.app %>/bower_components/backbone/backbone.js',
-                        '.tmp/scripts/templates.js'
+                        //'.tmp/scripts/templates.js'
                     ]
                 }
             }
         },
         coffee: {
+						options: {
+							bare: true,
+							sourceMap: false
+						},
             dist: {
                 files: [{
                     // rather than compiling multiple files here you should
@@ -310,8 +315,8 @@ module.exports = function (grunt) {
                 'createDefaultTemplate',
                 'handlebars',
                 'connect:test',
-                'open:test',
-                'watch:livereload'
+                'open:test'
+               // 'watch:livereload'
             ]);
         }
 
@@ -334,7 +339,7 @@ module.exports = function (grunt) {
                 'createDefaultTemplate',
                 'handlebars',
                 'jasmine',
-                'watch:test'
+               // 'watch:test'
             ];
             
         if(!isConnected) {
@@ -353,7 +358,7 @@ module.exports = function (grunt) {
         'handlebars',
         'useminPrepare',
         'requirejs',
-        'imagemin',
+       // 'imagemin',
         'htmlmin',
         'concat',
         'cssmin',

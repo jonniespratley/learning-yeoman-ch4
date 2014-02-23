@@ -10,7 +10,6 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link data-require="bootstrap-css@3.0.3" data-semver="3.0.3" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
@@ -24,59 +23,44 @@
         <![endif]-->
 
         <div id="app" class="container">
-
-            <header class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active">
-                        <a href="#/">Home</a>
-                    </li>
-                    <li>
-                        <a href="#/about">About</a>
-                    </li>
-                </ul>
-                <h3 class="brand text-muted">yo-backbone</h3>
-                <hr>
-            </header>
-
-            <div class="jumbotron hero-unit">
-                <h1>Chapter 4</h1>
-                <p>My Backbone Project</p>
-                <img src="https://dl.dropboxusercontent.com/u/26906414/learning_yeoman/images/yo-bb.png" class="img-"/>
-                <p class="lead">
-                    A starting point for a modern BackboneJS application.
-                </p>
-            </div>
-
-
-            <div id="pages" class="pages">
-                <div class="item-list"></div>
-                <div class="item-detail"></div>
-            </div>
-            <footer class="footer">
-                <hr />
-                <p>
-                    © 2014
-                </p>
-            </footer>
-
+					<header class="header">
+						<ul class="nav nav-pills pull-right">
+							<li class="active">
+								<a href="#/">Home</a>
+							</li>
+							<li><a href="#/about">About</a></li>
+							<li><a href="#/posts">Posts</a></li>
+						</ul>
+						<h3 class="brand text-muted">Learning Yeoman</h3>
+						<hr>
+					</header>
+					<nav class="navbar navbar-default navbar-fixed-top hidden" role="navigation">
+					  <div class="container">
+							<a class="navbar-brand text-muted" href="#">Learning Yeoman</a>
+							<ul class="nav navbar-nav pull-right">
+								<li class="active">
+									<a href="#/">Home</a>
+								</li>
+								<li><a href="#/about">About</a></li>
+								<li><a href="#/posts">Posts</a></li>
+							</ul>
+					  </div>
+					</nav>
+					<div id="content" class="content">
+						<div id="page" class="page"></div>
+					</div>
+						<footer class="footer">
+							<hr />
+							<p>
+								(c) Copyright 2014 Jonnie Spratley. All Rights Reserved. 
+							</p>
+						</footer>
         </div>
         <!-- Templates -->
-        <script id="list-tmpl" type="text/template">
-            <ol class="media-list posts list-group"></ol>
-        </script>
+        
 
 
-        <script id="list-item-tmpl" type="text/template">
-            <li class="media post" data-id="{{_id}}">
-                <a class="pull-left" href="#/posts/{{_id}}">
-                    <img class="media-object img-thumbnail" src="{{ image }}" alt="{{ title }}"/>
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">{{ title }}</h4>
-                    <p>{{ body }}</p>
-                </div>
-            </li>
-        </script>
+        
 
 
 

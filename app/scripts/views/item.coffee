@@ -1,5 +1,5 @@
 define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) ->
-	class ListitemView extends Backbone.View
+	class ItemView extends Backbone.View
 		template: JST['app/scripts/templates/listitem.hbs']
 		#Classname to attach
 		className: 'list-group-item'
