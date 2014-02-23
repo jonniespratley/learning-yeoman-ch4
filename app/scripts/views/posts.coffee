@@ -3,30 +3,25 @@ define ['jquery', 'underscore', 'backbone','templates', 'handlebars', 'collectio
 		template: JST['app/scripts/templates/posts.hbs']
 		el: '.content'
 		initialize: () ->
+			_.bindAll(@, "render")
 			@collection = new PostsCollection()
 			@collection.fetch(dataType: 'jsonp')
 			@collection.bind('posts:fetch:complete', @render, @)
-			_.bindAll(@, "render")
 			@childViews = []
 			@listenTo(@collection, 'add', @renderOne)
 			@listenTo(@collection, 'reset', @renderAll)
-			console.log @
-		render: () ->
-			console.log 'render PostsView'
-			@$el.html(@template(@model.toJSON())
-			return @$el
 		
-		#Render 1
+		render: () ->
+			#@$el.html(@template(@model.toJSON())
+			@$el.html(@template())
+		
 		renderOne: (item) ->
-			#Log the item passed for debugging.
-			console.log 'render one', item
 			#Create new list item view passing in a single model
-			itemView = new App.Views.ListItemView(model: item)
+			itemView = new PostView(model: item)
 			#Store a reference to the view by adding it to the views child-views
 			@childViews.push(itemView)
 			#Append the item view to this view element by calling the render method.
-			@$el.append(itemView.render())
-			console.log itemView.render()
+			@$el.find('.list-group').append(itemView.render())
 		
 		#Render all
 		renderAll: () ->

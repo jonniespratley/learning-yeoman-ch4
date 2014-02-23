@@ -23,5 +23,5 @@ define [
 		
 		postDetail: (id) ->
 			console.log('show post detail')
-			App.showView(new PostView(id))
+			App.showView(new PostView(model: id))
 	

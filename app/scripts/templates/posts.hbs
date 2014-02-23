@@ -1,12 +1,9 @@
-<legend>Posts</legend>
-<ol class="media-list posts list-group">
-{{#each results}}
-	<li>
-	Item
-	</li>
-{{/each}}
-{{log "Look at me!"}}
-{{#each results}}
-  {{@index}}: {{this}}
-{{/each}}
-</ol>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Posts</div>
+  <div class="panel-body">
+		<p>The most recent posts.</p>
+  </div>
+  <ul class="list-group">
+  </ul>
+</div>

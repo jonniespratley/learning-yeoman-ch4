@@ -1,9 +1,7 @@
-<div class="media post" data-id="{{_id}}">
-  <a class="pull-left" href="#/posts/{{_id}}">
-    <img class="media-object img-thumbnail" src="{{ image }}" alt="{{ title }}"/>
-  </a>
-  <div class="media-body">
-    <h4 class="media-heading">{{ title }}</h4>
-    <p>{{ body }}</p>
-  </div>
+<a class="pull-left" href="#/posts/{{_id}}" data-cid="{{cid}}">
+  <img class="media-object img-thumbnail" src="{{ image }}" alt="{{ title }}"/>
+</a>
+<div class="media-body">
+  <h4 class="media-heading">{{ title }}</h4>
+  <p>{{ body }}</p>
 </div>
