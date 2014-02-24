@@ -5,3 +5,9 @@
 
 
 
+## Grunt Mods
+The following is the modifications done to get everything working seamless.
+
+* Removed imagemin - Issues being installed on travisci.com
+* Install grunt-jasmine template `npm install grunt-template-jasmine-requirejs --save-dev`
+

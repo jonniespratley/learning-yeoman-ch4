@@ -19,6 +19,11 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		childViews : null
 		currentView : null
 		debug: true
+		session: null
+		Collections: {}
+		Models: {}
+		View: {}
+		Routers: {}
 		pubsub: 
 			listeners: {}
 			published: {}
@@ -47,7 +52,7 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 			#$(@el).html('<div/>').attr('class', 'page');
 			@currentView.render()
 			#$('body').html(@currentView.el)
-			#$(@el).html(App.currentView.render().el)
+			$(@el).html(App.currentView.render().el)
 			#$(@el).html("<div data-view-cid='#{view.cid}'></div>");
 			###
 			_.each(@childViews, (_view, _cid) ->
