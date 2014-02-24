@@ -19,6 +19,11 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		childViews : null
 		currentView : null
 		debug: true
+		session: null
+		Collections: {}
+		Models: {}
+		View: {}
+		Routers: {}
 		pubsub: 
 			listeners: {}
 			published: {}
