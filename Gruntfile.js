@@ -137,8 +137,6 @@ module.exports = function (grunt) {
             all:{
                 src : '.tmp/scripts/{,*/}*.js',
                 options: {
-										keepAlive: false,
-										timeout : 9000,
                     keepRunner: true,
                     specs : [
 										'.tmp/spec/**/*.js'
@@ -149,7 +147,7 @@ module.exports = function (grunt) {
                         //'<%= yeoman.app %>/bower_components/jasmine-jquery/lib/jasmine-jquery.js'
                         //'.tmp/scripts/templates.js'
                     ],
-										host: 'http://127.0.0.1:9001/',
+										//host: 'http://127.0.0.1:9001/',
 										template: require('grunt-template-jasmine-requirejs'),
 										templateOptions: {
 											requireConfigFile: '.tmp/scripts/main.js',
