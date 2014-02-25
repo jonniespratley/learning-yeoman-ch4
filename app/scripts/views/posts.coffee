@@ -14,6 +14,7 @@ define ['jquery', 'underscore', 'backbone','templates', 'handlebars', 'collectio
 		render: () ->
 			#@$el.html(@template(@model.toJSON())
 			@$el.html(@template())
+			return @
 		
 		renderOne: (item) ->
 			#Create new list item view passing in a single model
