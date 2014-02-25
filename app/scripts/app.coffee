@@ -1,4 +1,11 @@
-define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) ->
+define([
+	'jquery'
+	'underscore'
+	'backbone'
+	'templates'
+	'models/post'
+	'collections/posts'
+	], ($, _, Backbone, JST) ->
 	# Add your coffee-script here
 	_.templateSettings = 
 		evaluate:    /\{\{#([\s\S]+?)\}\}/g,            #// {{# console.log("blah") }}
@@ -90,3 +97,6 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		
 		
 	
+
+
+)

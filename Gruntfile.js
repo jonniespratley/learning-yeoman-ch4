@@ -88,6 +88,7 @@ module.exports = function (grunt) {
                         return [
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
+                            mountFolder(connect, '.grunt'),
                             mountFolder(connect, 'test'),
                             mountFolder(connect, yeomanConfig.app)
                         ];
@@ -137,51 +138,50 @@ module.exports = function (grunt) {
             all:{
                 src : '.tmp/scripts/{,*/}*.js',
                 options: {
+                   // outfile: 'test/index.html',
                     keepRunner: true,
-                    specs : [
-										'.tmp/spec/**/*.js'
-										],
+                    specs : ['.tmp/spec/**/*.js'],
                     vendor : [
                         '<%= yeoman.app %>/bower_components/jquery/jquery.js',
                         //'<%= yeoman.app %>/bower_components/jasmine/lib/jasmine-core/jasmine.js',
                         //'<%= yeoman.app %>/bower_components/jasmine-jquery/lib/jasmine-jquery.js'
                         //'.tmp/scripts/templates.js'
                     ],
-										//host: 'http://127.0.0.1:9001/',
-										template: require('grunt-template-jasmine-requirejs'),
-										templateOptions: {
-											requireConfigFile: '.tmp/scripts/main.js',
-											requireConfig: {
-												baseUrl: '.tmp/scripts',
-											  shim: {
-											    underscore: {
-											      exports: '_'
-											    },
-											    backbone: {
-											      deps: ['underscore', 'jquery'],
-											      exports: 'Backbone'
-											    },
-											    handlebars: {
-											      exports: 'Handlebars'
-											    }
-											  },
-											  paths: {
-											    jquery: '../../<%= yeoman.app %>/bower_components/jquery/jquery',
-											    backbone: '../../<%= yeoman.app %>/bower_components/backbone/backbone',
-											    underscore: '../../<%= yeoman.app %>/bower_components/underscore/underscore',
-											    handlebars: '../../<%= yeoman.app %>/bower_components/handlebars/handlebars',
-													app: 'app'
-											  }
-											}
-										}
+                    //host: 'http://127.0.0.1:9001/',
+					template: require('grunt-template-jasmine-requirejs'),
+					templateOptions: {
+						requireConfigFile: '.tmp/scripts/main.js',
+						requireConfig: {
+							baseUrl: '.tmp/scripts',
+						  shim: {
+						    underscore: {
+						      exports: '_'
+						    },
+						    backbone: {
+						      deps: ['underscore', 'jquery'],
+						      exports: 'Backbone'
+						    },
+						    handlebars: {
+						      exports: 'Handlebars'
+						    }
+						  },
+						  paths: {
+						    jquery: '../../<%= yeoman.app %>/bower_components/jquery/jquery',
+						    backbone: '../../<%= yeoman.app %>/bower_components/backbone/backbone',
+						    underscore: '../../<%= yeoman.app %>/bower_components/underscore/underscore',
+						    handlebars: '../../<%= yeoman.app %>/bower_components/handlebars/handlebars',
+								app: 'app'
+						  }
+						}
+					}
                 }
             }
         },
         coffee: {
-						options: {
-							bare: true,
-							sourceMap: false
-						},
+			options: {
+				bare: true,
+				sourceMap: false
+			},
             dist: {
                 files: [{
                     // rather than compiling multiple files here you should
@@ -348,8 +348,8 @@ module.exports = function (grunt) {
                 'createDefaultTemplate',
                 'handlebars',
                 'connect:test',
-                'open:test'
-               // 'watch:livereload'
+                'open:test',
+                'watch:livereload'
             ]);
         }
 
@@ -372,7 +372,7 @@ module.exports = function (grunt) {
                 'createDefaultTemplate',
                 'handlebars',
                 'jasmine',
-               // 'watch:test'
+                'watch'
             ];
             
         if(!isConnected) {
