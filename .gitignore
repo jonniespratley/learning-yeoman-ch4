@@ -1,1 +1,16 @@
+<<<<<<< HEAD
 .idea/misc.xml
+=======
+node_modules
+dist
+test/temp
+.sass-cache
+app/bower_components
+.tmp
+test/bower_components/
+.workspace.xml
+.idea/*
+.grunt
+.project
+_SpecRunner.html
+>>>>>>> jasmine

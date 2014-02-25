@@ -8,7 +8,9 @@
     "requirejs": "~2.1.5",
     "requirejs-text": "~2.0.5",
     "modernizr": "~2.6.2",
-    "handlebars": "~1.0.0"
+    "handlebars": "~1.0.0",
+    "jasmine-jquery": "~2.0.3",
+    "jasmine": "~2.0.0"
   },
   "devDependencies": {}
 }
