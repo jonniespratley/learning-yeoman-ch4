@@ -1,20 +1,20 @@
 @import url('bootstrap.min.css');
 body {
-    background: #fafafa;
-}
-body {
-
+    background: #fff;
     padding: 10px 25px;
+}
+.brand a {
+    color: #999;
+    text-decoration: none;
 }
 
 .jumbotron {
-    text-transform: uppercase;
+    text-transform: lowercase;
     text-align: center;
-    
+    padding: 15px 25px;
 }
-.jumbotron h1{
-    font-size:2em;
-    font-family:'Droid Sans',sans-serif;
+.jumbotron h1 {
+
 }
 .jumbotron img{
     margin: 15px auto;
@@ -22,11 +22,11 @@ body {
 
 .post img{
     width:55px;
-margin-right: 10px;
+    margin-right: 10px;
 }
-
-footer{
-	text-align:center;
-	font-size: .8em;
-	color: #999;
+footer {
+    
+    font-size: .8em;
+    color: #777 !important;
+    text-align: center;
 }

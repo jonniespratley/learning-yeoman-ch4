@@ -6,8 +6,8 @@ define ['jquery', 'underscore', 'backbone','templates'], ($, _, Backbone, JST) -
 			console.log @
 		render: () ->
 			@$el.html(@template(
-				title: 'My Backbone Project'
-				body: 'A starting point for a modern BackboneJS application.'
+				title: 'chapter 4'
+				body: 'a starting point for a modern BackboneJS application.'
 				image: 'http://goo.gl/fOq55C'
 			))
 			return @
