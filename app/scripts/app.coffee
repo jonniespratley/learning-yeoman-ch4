@@ -42,6 +42,7 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 			@childViews = {}
 			@initMenu()
 			@log(@)
+			@initMenu()
 			return @
 		log: () ->
 			console.log(arguments) if @debug
@@ -72,6 +73,19 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 					$(e.currentTarget).parent().addClass('active')
 				)
 			)
+		
+		initMenu: () ->
+			#Listen for menu changes and toggle active element
+			$(document).ready(() ->
+				$('.nav').on('click', 'a', (e) ->
+					#Clear active menu
+					$(e.currentTarget).parents().find('.active').removeClass('active')
+					#Set active menu
+					$(e.currentTarget).parent().addClass('active')
+				)
+			)
+
+
 		
 		
 		
