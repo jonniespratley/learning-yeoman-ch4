@@ -6,7 +6,7 @@ app/bower_components
 .tmp
 test/bower_components/
 .workspace.xml
-.idea
+.idea/*
 .grunt
 .project
 _SpecRunner.html
