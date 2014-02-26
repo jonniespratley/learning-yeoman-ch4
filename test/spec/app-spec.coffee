@@ -14,7 +14,7 @@ define(['jquery', 'backbone', 'app'], ($, Backbone, App) ->
 			console.log('beforeEach')
 		)
 		
-		describe 'the window.App global', ->
+		describe 'App', ->
 			it 'should have session property', ->
 				expect( testApp.session ).toBe(null)
 			
