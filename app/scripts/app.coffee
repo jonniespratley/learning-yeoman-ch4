@@ -16,7 +16,7 @@ define([
 		console.log('Backbone.View.close()', @)
 		#@$el.fadeToggle()
 		#@remove()
-		#@$el.empty()
+		#@$el.hide()
 		@unbind()
 		@onClose() if @onClose
 	
