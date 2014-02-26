@@ -16,10 +16,10 @@ require.config
 		handlebars: '../bower_components/handlebars/handlebars'
 	
 
-require ['jquery','backbone', 'app', 'routes/app'], ($, Backbone, App, AppRouter) ->
+require ['jquery','backbone', 'config', 'app', 'routes/app'], ($, Backbone, Config, App, AppRouter) ->
 	$ ->
 		console.log 'App ready', @
-		window.App = App.init()
+		window.App = App.init(Config)
 		new AppRouter()
 		Backbone.history.start()
 

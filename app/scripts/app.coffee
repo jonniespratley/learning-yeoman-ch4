@@ -45,7 +45,8 @@ define([
 				Backbone.on(name, callback)
 			
 		
-		init : () ->
+		init : (config) ->
+			@config = config if config
 			@childViews = {}
 			@initMenu()
 			@log(@)
