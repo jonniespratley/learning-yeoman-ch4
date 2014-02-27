@@ -20,7 +20,8 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		
 		#Handle injecting template
 		render: () ->
-			return Mustache.render(@template, @model.toJSON())
+			@$el.html(@template(@model.toJSON()))
+			return @
 		
 		#Handle when a item is clicked
 		itemClickHandler: (e) ->

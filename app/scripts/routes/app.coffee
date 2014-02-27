@@ -23,7 +23,7 @@ define [
 			App.showView(new PostsView())
 		
 		postDetail: (id) ->
-			console.log('show post detail')
-			post = new PostModel(id)
+			post = new PostModel(_id: id)
+			console.log('show post detail', post)
 			App.showView(new PostView(model: post, el: '.content'))
 	
