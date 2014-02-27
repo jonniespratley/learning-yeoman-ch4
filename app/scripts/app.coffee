@@ -62,7 +62,7 @@ define([
 			#$(@el).html('<div/>').attr('class', 'page');
 			@currentView.render()
 			#$('body').html(@currentView.el)
-			$(@el).html(App.currentView.render().el)
+			$(@el).html(@currentView.render().el)
 			#$(@el).html("<div data-view-cid='#{view.cid}'></div>");
 			###
 			_.each(@childViews, (_view, _cid) ->
