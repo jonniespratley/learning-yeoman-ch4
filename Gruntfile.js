@@ -170,7 +170,8 @@ module.exports = function (grunt) {
 						    backbone: '../../<%= yeoman.app %>/bower_components/backbone/backbone',
 						    underscore: '../../<%= yeoman.app %>/bower_components/underscore/underscore',
 						    handlebars: '../../<%= yeoman.app %>/bower_components/handlebars/handlebars',
-								app: 'app'
+							config: 'config',
+                            app: 'app'
 						  }
 						}
 					}
@@ -371,8 +372,8 @@ module.exports = function (grunt) {
                 'coffee',
                 'createDefaultTemplate',
                 'handlebars',
-                'jasmine',
-                'watch'
+                'jasmine'
+              //  'watch'
             ];
             
         if(!isConnected) {
