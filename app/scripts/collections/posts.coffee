@@ -3,6 +3,8 @@ define ['underscore', 'backbone', 'models/post'], (_, Backbone, PostModel) ->
 		model: PostModel
 		url: ->
 			'http://jonniespratley.me:8181/api/v2/angular-cms/posts'
+		initialize: () ->
+			console.log('PostsCollection initialize:',@)
 		parse : (response) ->
 			#@set(results: response)
 			@trigger('posts:fetch:complete')

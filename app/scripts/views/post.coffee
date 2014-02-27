@@ -10,7 +10,7 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		#Setup event binding
 		initialize: () ->
 			_.bindAll(@, "render")
-			console.log('PostView', @)
+			console.log('PostView initialize:', @)
 			#@model.fetch(dataType: 'jsonp')
 			@model.bind("change", @render, @)
 			@model.bind("destroy", @close, @)

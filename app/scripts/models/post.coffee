@@ -9,8 +9,8 @@ define ['underscore', 'backbone'], (_, Backbone) ->
 			slug: 'post-title'
 			image: '//placehold.it/150x150&text=Image'
 			body: 'This is an example post with default data.'
-		init: () ->
-			console.log('PostModel init:',@)
+		initialize: () ->
+			console.log('PostModel initialize:',@)
 		
 		parse : (response) ->
 			App.log('Model parse:', response)
