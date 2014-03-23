@@ -170,8 +170,8 @@ module.exports = function (grunt) {
 						    }
 						  },
 						  paths: {
-						    jquery: '../../bower_components/jquery/jquery',
-						    backbone: '../../bower_components/backbone/backbone',
+						    jquery: '../../<%= yeoman.app %>/bower_components/jquery/jquery',
+						    backbone: '../../<%= yeoman.app %>/bower_components/backbone/backbone',
 						    underscore: '../../<%= yeoman.app %>/bower_components/underscore/underscore',
 						    handlebars: '../../<%= yeoman.app %>/bower_components/handlebars/handlebars',
 							config: 'config',
