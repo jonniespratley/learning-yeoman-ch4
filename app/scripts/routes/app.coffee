@@ -6,7 +6,7 @@ define [
 	'views/post'
 	'models/post'
 	], (Backbone, AppView, AboutView, PostsView, PostView, PostModel) ->
-	class AppRouter extends Backbone.Router
+	class App.AppRouter extends App.Router
 		routes: 
 			'': 'index'
 			'about': 'about'
@@ -14,16 +14,16 @@ define [
 			'posts/:id': 'postDetail'
 		index: () ->
 			console.log('#/index route')
-			myApp.showView(new AppView())
+			App.showView(new AppView())
 		about: () ->
 			console.log('#/about route')
-			myApp.showView(new AboutView())
+			App.showView(new AboutView())
 		posts: () ->
 			console.log('posts view')
-			myApp.showView(new PostsView())
+			App.showView(new PostsView())
 		
 		postDetail: (id) ->
 			post = new PostModel(_id: id)
 			console.log('show post detail', post)
-			myApp.showView(new PostView(model: post, el: '.content'))
+			App.showView(new PostView(model: post, el: '.content'))
 	

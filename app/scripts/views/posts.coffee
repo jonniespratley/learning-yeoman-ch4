@@ -1,4 +1,5 @@
-define ['jquery', 'underscore', 'backbone','templates', 'handlebars', 'collections/posts', 'views/post'], ($, _, Backbone, JST, Handlebars, PostsCollection, PostView) ->
+define ['jquery', 'app', 'backbone','templates', 'collections/posts', 'views/post'], ($, App, Backbone, JST, PostsCollection, PostView) ->
+	
 	class PostsView extends Backbone.View
 		template: JST['app/scripts/templates/posts.hbs']
 		el: '.content'

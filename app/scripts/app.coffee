@@ -6,7 +6,6 @@ define([
 	'templates'
 	], ($, _, Backbone, Handlebars, JST) ->
 	
-	
 	# Add your coffee-script here
 	_.templateSettings = 
 		evaluate:    /\{\{#([\s\S]+?)\}\}/g,            #// {{# console.log("blah") }}
@@ -20,42 +19,54 @@ define([
 		#@$el.hide()
 		@unbind()
 		@onClose() if @onClose
+		
+		
+	#Layer of abstraction
+	class View extends Backbone.View
+		@constructor: () ->
+			console.log 'View init', @
+		
+	class Model extends Backbone.Model
+		idAttribute: '_id'
+		@constructor: () ->
+			console.log 'Model init', @   
+	    
+	class Collection extends Backbone.Collection
+		@constructor: () ->
+	    console.log 'Collection init', @    
 	
-	class window.App
+	class Router extends Backbone.Router
+		@constructor: () ->
+	    console.log 'Router init', @    
+
+	App = App or {}
+	App.Config or (App.Config = {})
+	App.Models or (App.Models = {})
+	App.Collections or (App.Collections = {})
+	App.Routers or (App.Routers = {})
+	App.Views or (App.Views = {})
+	App.Templates or (App.Templates = {})
+	window.App =
+		Model: Model
+		View: View
+		Collection: Collection
+		Router: Router
+		log: () ->
+			console?.log(arguments) if @debug
 		el: '.content'
 		models : []
 		childViews : null
 		currentView : null
 		debug: true
 		session: null
-		Collections: {}
-		Models: {}
-		View: {}
-		Routers: {}
-		pubsub: 
-			listeners: {}
-			published: {}
-			pub: (name, data) =>
-				console.log('pub', name, data)
-				@pubsub.published[name] = data
-				Backbone.trigger(name, data)
-				
-			sub: (name, callback) =>
-				console.log('sub', name, callback)
-				@pubsub.listeners[name] = callback
-				Backbone.on(name, callback)
-			
 		
-		constructor : (config) ->
-			@config = config if config
+		init : (config) ->
+			@Config = config if config
 			@childViews = {}
 			@initMenu()
 			@log(@)
 			@initMenu()
 			return @
-		log: () ->
-			console.log(arguments) if @debug
-		
 		showView : (view) ->
 			@childViews[view.cid] = view
 			@currentView.close() if @currentView

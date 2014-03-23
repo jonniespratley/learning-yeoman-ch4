@@ -2,7 +2,7 @@ define(['jquery', 'backbone', 'app'], ($, Backbone, App) ->
 	router = null
 	routerSpy = null
 	fixture = $('<div id="jasmine-app"></div>')
-	window.testApp = App.init()
+	testApp = App.init()
 	###
 	Backbone App Tests
 	###
@@ -13,6 +13,13 @@ define(['jquery', 'backbone', 'app'], ($, Backbone, App) ->
 			#setFixtures(sandbox)
 			console.log('beforeEach')
 		)
+		
+		describe "Namespace", ->
+			it "provides the 'App' object", ->
+				# Expect exists and is an object.
+				expect(testApp).to.be.an "object"
+				# Expect all namespace properties are present.
+				expect(testApp).to.include.keys "Config", "Collections", "Models", "Routers", "Templates", "Views"
 		
 		describe 'App', ->
 			it 'should have session property', ->
