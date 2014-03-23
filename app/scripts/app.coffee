@@ -2,10 +2,11 @@ define([
 	'jquery'
 	'underscore'
 	'backbone'
+	'handlebars'
 	'templates'
-	'models/post'
-	'collections/posts'
-	], ($, _, Backbone, JST) ->
+	], ($, _, Backbone, Handlebars, JST) ->
+	
+	
 	# Add your coffee-script here
 	_.templateSettings = 
 		evaluate:    /\{\{#([\s\S]+?)\}\}/g,            #// {{# console.log("blah") }}
@@ -20,7 +21,7 @@ define([
 		@unbind()
 		@onClose() if @onClose
 	
-	App =
+	class window.App
 		el: '.content'
 		models : []
 		childViews : null
@@ -34,18 +35,18 @@ define([
 		pubsub: 
 			listeners: {}
 			published: {}
-			pub: (name, data) ->
+			pub: (name, data) =>
 				console.log('pub', name, data)
-				App.pubsub.published[name] = data
+				@pubsub.published[name] = data
 				Backbone.trigger(name, data)
 				
-			sub: (name, callback) ->
-				App.pubsub.listeners[name] = callback
+			sub: (name, callback) =>
 				console.log('sub', name, callback)
+				@pubsub.listeners[name] = callback
 				Backbone.on(name, callback)
 			
 		
-		init : (config) ->
+		constructor : (config) ->
 			@config = config if config
 			@childViews = {}
 			@initMenu()
@@ -71,8 +72,8 @@ define([
 			)
 			###
 			console.log('App.showView', @)
-		initMenu: () ->
 			#Listen for menu changes and toggle active element
+		initMenu: () ->
 			$(document).ready(() ->
 				$('.nav').on('click', 'a', (e) ->
 					#Clear active menu
@@ -82,22 +83,4 @@ define([
 				)
 			)
 		
-		initMenu: () ->
-			#Listen for menu changes and toggle active element
-			$(document).ready(() ->
-				$('.nav').on('click', 'a', (e) ->
-					#Clear active menu
-					$(e.currentTarget).parents().find('.active').removeClass('active')
-					#Set active menu
-					$(e.currentTarget).parent().addClass('active')
-				)
-			)
-
-
-		
-		
-		
-	
-
-
 )

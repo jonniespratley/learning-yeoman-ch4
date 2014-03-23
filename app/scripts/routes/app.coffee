@@ -14,16 +14,16 @@ define [
 			'posts/:id': 'postDetail'
 		index: () ->
 			console.log('#/index route')
-			App.showView(new AppView())
+			myApp.showView(new AppView())
 		about: () ->
 			console.log('#/about route')
-			App.showView(new AboutView())
+			myApp.showView(new AboutView())
 		posts: () ->
 			console.log('posts view')
-			App.showView(new PostsView())
+			myApp.showView(new PostsView())
 		
 		postDetail: (id) ->
 			post = new PostModel(_id: id)
 			console.log('show post detail', post)
-			App.showView(new PostView(model: post, el: '.content'))
+			myApp.showView(new PostView(model: post, el: '.content'))
 	

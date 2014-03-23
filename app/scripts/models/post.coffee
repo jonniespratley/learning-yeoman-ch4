@@ -1,6 +1,6 @@
 define ['underscore', 'backbone'], (_, Backbone) ->
 	'use strict'
-	class PostModel extends Backbone.Model
+	class App.PostModel extends Backbone.Model
 		idAttribute: '_id'
 		url: ->
 			'http://jonniespratley.me:8181/api/v2/angular-cms/posts/'+ @id
