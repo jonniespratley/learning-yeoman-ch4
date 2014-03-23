@@ -16,12 +16,8 @@ define(['jquery', 'backbone', 'app'], ($, Backbone, App) ->
 		
 		describe "Namespace", ->
 			it "provides the 'App' object", ->
-				# Expect exists and is an object.
-				expect(testApp).to.be.an "object"
-				# Expect all namespace properties are present.
-				expect(testApp).to.include.keys "Config", "Collections", "Models", "Routers", "Templates", "Views"
-		
-		describe 'App', ->
+				
+			
 			it 'should have session property', ->
 				expect( testApp.session ).toBe(null)
 			

@@ -6,7 +6,7 @@ define [
 	'views/post'
 	'models/post'
 	], (Backbone, AppView, AboutView, PostsView, PostView, PostModel) ->
-	class App.AppRouter extends App.Router
+	class AppRouter extends App.Router
 		routes: 
 			'': 'index'
 			'about': 'about'

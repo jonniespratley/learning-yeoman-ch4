@@ -60,7 +60,11 @@ module.exports = function (grunt) {
                 tasks: ['handlebars']
             },
             test: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
+                files: [
+                '<%= yeoman.app %>/scripts/{,*/}*.coffee', 
+                
+                'test/spec/**/*.coffee'
+                ],
                 tasks: ['test:true']
             }
         },
@@ -166,12 +170,12 @@ module.exports = function (grunt) {
 						    }
 						  },
 						  paths: {
-						    jquery: '../../<%= yeoman.app %>/bower_components/jquery/jquery',
-						    backbone: '../../<%= yeoman.app %>/bower_components/backbone/backbone',
+						    jquery: '../../bower_components/jquery/jquery',
+						    backbone: '../../bower_components/backbone/backbone',
 						    underscore: '../../<%= yeoman.app %>/bower_components/underscore/underscore',
 						    handlebars: '../../<%= yeoman.app %>/bower_components/handlebars/handlebars',
 							config: 'config',
-                            app: 'app'
+                 app: 'app'
 						  }
 						}
 					}
