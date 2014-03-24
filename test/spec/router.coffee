@@ -28,5 +28,14 @@ define(['jquery', 'backbone', 'underscore', 'routes/app'], ($, Backbone, _, AppR
 			router.navigate('', true)
 			expect(routerSpy.wasCalled).toBe(true)
 		
+		it 'should handle the posts route', ->
+			router.bind('route:posts', routerSpy)
+			router.navigate('#posts', true)
+			expect(routerSpy.wasCalled).toBe(true)
+			
+		it 'should not handle unknown routes', ->
+			router.bind('route:route-doesnt-exist', routerSpy)
+			router.navigate('#route-doesnt-exist', true)
+			expect(routerSpy.wasCalled).toBe(false)
 	
 )

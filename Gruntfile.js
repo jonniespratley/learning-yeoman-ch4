@@ -33,7 +33,8 @@ module.exports = function(grunt) {
 	// configurable paths
 	var yeomanConfig = {
 		app: 'app',
-		dist: 'dist'
+		dist: 'dist',
+		test: 'test'
 	};
 
 	grunt.initConfig({
@@ -133,11 +134,14 @@ module.exports = function(grunt) {
 					// outfile: 'test/index.html',
 					keepRunner: true,
 					specs: ['.tmp/spec/**/*.js'],
-					vendor: ['<%= yeoman.app %>/bower_components/jquery/jquery.js',
-					//'<%= yeoman.app %>/bower_components/jasmine/lib/jasmine-core/jasmine.js',
-					//'<%= yeoman.app %>/bower_components/jasmine-jquery/lib/jasmine-jquery.js'
-					//'.tmp/scripts/templates.js'
+					
+					//Non-source, non-spec helper files. In the default runner these are loaded after vendor files
+					
+										//Third party libraries like jQuery & generally anything loaded before source, specs, and helpers.
+					vendor: [
+				//	'<%= yeoman.app %>/bower_components/jquery/jquery.js'
 					],
+					//helpers: '<%= yeoman.test %>/bower_components/jasmine-jquery/lib/jasmine-jquery.js',
 					//host: 'http://127.0.0.1:9001',
 					template: require('grunt-template-jasmine-requirejs'),
 					templateOptions: {

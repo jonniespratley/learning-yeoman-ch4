@@ -10,7 +10,8 @@ define(['jquery', 'backbone', 'app'], ($, Backbone, App) ->
 		#sandbox = sandbox()
 		
 		beforeEach(()->
-			#setFixtures(sandbox)
+			$('#fixture').remove();
+			$('body').append('<div id="fixture" class="page"></div>');
 			console.log('beforeEach')
 		)
 		
