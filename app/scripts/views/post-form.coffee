@@ -3,13 +3,13 @@ define ['jquery', 'underscore', 'backbone', 'templates', 'models/post'], ($, _, 
 		template: JST['app/scripts/templates/post-form.hbs']
 		#Events listening for
 		events: 
-			'submit form': 'formSubmitHandler'
+			'click .save': 'formSubmitHandler'
 		#Setup event binding
 		initialize: () ->
 			_.bindAll(@, "render")
 			console.log('PostFormView initialize:', @)
 			if @model?
-				@model.fetch() 
+			#	@model.fetch() 
 				@model.bind("change", @render, @)
 				@model.bind("destroy", @close, @)
 			else 

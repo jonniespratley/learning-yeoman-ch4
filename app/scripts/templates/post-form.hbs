@@ -11,7 +11,14 @@
 	</li>
 </ol>
 -->
+<div class="pull-right">
+	<a href="#/posts/{{_id}}" class="btn btn-default cancel"> Cancel </a>
 
+	<button class="btn btn-primary save" type="button">
+		Save
+	</button>
+	
+</div>
 <div class="page-header">
 	{{#if _id}}
 		<h1>Edit Post</h1>
@@ -46,7 +53,7 @@
 					<input type="url" class="form-control" id="inputImage" placeholder="Enter a URL" name="image" value="{{image}}">
 				</div>
 			</div>
-			<div class="form-group">
+			<!--div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
 				<div class="pull-right">
 					<a href="#/posts/{{_id}}" class="btn btn-default cancel"> Cancel </a>
@@ -55,7 +62,7 @@
 					</button>
 				</div>
 				</div>
-			</div>
+			</div-->
 		</form>
 	</div>
 	<div class="col-xs-5 col-sm-4">

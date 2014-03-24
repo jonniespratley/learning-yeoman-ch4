@@ -6,6 +6,9 @@ body {
     background: #fff;
     padding: 10px 25px;
 }
+.container{
+	max-width:760px;
+}
 .brand a {
     color: #999;
     text-decoration: none;
