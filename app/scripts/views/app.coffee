@@ -2,8 +2,7 @@ define ['jquery', 'underscore', 'backbone','templates', 'Config'], ($, _, Backbo
 	class AppView extends Backbone.View
 		template: JST['app/scripts/templates/app.hbs']
 		initialize: () ->
-			console.log 'initialize AppView'
-			console.log @
+			#console.log 'initialize AppView'
 		render: () ->
 			@$el.html(@template(Config))
 			return @

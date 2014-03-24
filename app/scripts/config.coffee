@@ -1,5 +1,5 @@
 define(() ->
-	return window.Config =
+	return Config =
 		baseurl: document.location.origin
 		sitetitle: "Learning Yeoman"
 		sitedesc: "a starting point for a modern backbone.js application."
@@ -23,30 +23,20 @@ define(() ->
 			authorized: false
 			user: null
 		layout: 
-		  header: "views/_header.html"
-		  sidebar: "views/_sidebar.html"
-		  content:"views/_content.html"
-		  footer: "views/_footer.html"
-		menu:
-			admin: [
-				id: 1, title: "Settings", href: "/settings", icon: "cog"
-			]
-			pub: [
-				#title: 'Login', icon: 'user', href:'/login', requireLogin: false
-			#,
-				#title: 'Register', icon: 'lock', href:'/register', requireLogin: false
-			]
-			user: [
-				id: 1, title: "Dashboard", icon: "dashboard", href: "/dashboard", requireLogin: true
-			,
-				id: 2, title: "My Profile", icon: "user", href: "/profile", requireLogin: true
-			]
-		logout:
-			redirect: "/login"
-			message: "Good bye..."
-		login:
-			redirect: "/dashboard"
-			image: "images/logo-login.png"
-			message: "Welcome {{user.username}}"
+			header: "views/_header.html"
+			sidebar: "views/_sidebar.html"
+			content:"views/_content.html"
+			footer: "views/_footer.html"
+		menu: [
+			title: "Home" 
+			href: "/home"
+		,
+			title: "About" 
+			href: "/about"
+		,
+			title: "Posts" 
+			href: "/posts"
+		]
+
 	
 )
