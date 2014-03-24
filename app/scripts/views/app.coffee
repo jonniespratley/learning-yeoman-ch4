@@ -3,7 +3,6 @@ define ['jquery', 'underscore', 'backbone','templates', 'Config'], ($, _, Backbo
 		template: JST['app/scripts/templates/app.hbs']
 		initialize: () ->
 			console.log 'initialize AppView'
-			console.log @
 		render: () ->
 			@$el.html(@template(Config))
 			return @

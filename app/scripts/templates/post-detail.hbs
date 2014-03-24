@@ -1,0 +1,24 @@
+
+
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#/posts">Posts</a></li>
+  <li class="active">Detail</li>
+</ol>
+<!-- Content gets injected -->
+
+ 	<div class="pull-right">
+		<a href="#/posts/{{_id}}/edit" class="btn btn-default edit">
+			<i class="glyphicon glyphicon-pencil"></i>
+		</a>
+		<a href="#/posts/{{_id}}/edit" class="btn btn-danger delete">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<div class="page-header">
+		<h1>{{title}}</h1>
+	</div>
+	<section>
+		{{body}}
+	</section>
+

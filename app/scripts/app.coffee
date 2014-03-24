@@ -53,7 +53,7 @@ define([
 		Router: Router
 		log: () ->
 			console?.log(arguments) if @debug
-		el: '.content'
+		el: '.page'
 		models : []
 		childViews : null
 		currentView : null
@@ -63,26 +63,22 @@ define([
 		init : (config) ->
 			@Config = config if config
 			@childViews = {}
-			@initMenu()
+			#@initMenu()
 			@log(@)
-			@initMenu()
+			#@initMenu()
 			return @
 		showView : (view) ->
-			@childViews[view.cid] = view
+			console.log('App.showView', view)
+			#Close current view
 			@currentView.close() if @currentView
+			
+			#Set current view
 			@currentView = view
-			#$(@el).html('<div/>').attr('class', 'page');
+						
+			#Render current view
 			@currentView.render()
-			#$('body').html(@currentView.el)
-			$(@el).html(@currentView.render().el)
-			#$(@el).html("<div data-view-cid='#{view.cid}'></div>");
-			###
-			_.each(@childViews, (_view, _cid) ->
-				console.log(_view, _cid)
-				@$("[data-view-cid='#{_cid}']").replaceWith(_view.render())
-			)
-			###
-			console.log('App.showView', @)
+			$(@el).html(@currentView.el)
+			
 			#Listen for menu changes and toggle active element
 		initMenu: () ->
 			$(document).ready(() ->

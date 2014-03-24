@@ -1,8 +1,6 @@
 define ['jquery', 'app', 'backbone','templates', 'collections/posts', 'views/post'], ($, App, Backbone, JST, PostsCollection, PostView) ->
-	
 	class PostsView extends Backbone.View
 		template: JST['app/scripts/templates/posts.hbs']
-		el: '.content'
 		initialize: () ->
 			_.bindAll(@, "render")
 			@collection = new PostsCollection()
@@ -23,7 +21,7 @@ define ['jquery', 'app', 'backbone','templates', 'collections/posts', 'views/pos
 			#Store a reference to the view by adding it to the views child-views
 			@childViews.push(itemView)
 			#Append the item view to this view element by calling the render method.
-			@$el.find('.list-group').append(itemView.render())
+			@$el.append(itemView.render())
 		
 		#Render all
 		renderAll: () ->
