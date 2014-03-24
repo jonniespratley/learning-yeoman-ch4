@@ -3,8 +3,6 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		template: JST['app/scripts/templates/post-detail.hbs']
 		#Events listening for
 		events: 
-			'click .edit': 'editItemHandler'
-			'click .delete' : 'deleteItemHandler'
 		#Setup event binding
 		initialize: () ->
 			_.bindAll(@, "render")
@@ -17,15 +15,4 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		#Handle injecting template
 		render: () ->
 			@$el.html(@template(@model.toJSON()))
-		
-		editItemHandler: (e) ->
-			Backbone.trigger('post:edit', @)
-			console.warn(@)
-		
-		deleteItemHandler: (e) ->
-			e.preventDefault()
-			ask = confirm('Are you sure you want to delete this?')
-			Backbone.trigger('post:delete', @model) if ask
-			console.warn(@)
-		
 	

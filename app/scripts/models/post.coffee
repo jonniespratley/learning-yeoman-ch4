@@ -6,11 +6,11 @@ define ['underscore', 'backbone'], (_, Backbone) ->
 		defaults:
 			title: 'Post Title'
 			slug: 'post-title'
-			image: '//placehold.it/150x150&text=Image'
+			image: 'http://placehold.it/150x150&text=Image'
 			body: 'This is an example post with default data.'
-			tags: 'featured, post'
+			tags: ['featured', 'post']
 			created: new Date()
-			modified: null
+			modified: new Date()
 			published: true
 		initialize: () ->
 			console.log('PostModel initialize:',@)

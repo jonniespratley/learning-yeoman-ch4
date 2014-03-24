@@ -8,11 +8,12 @@ define [
 	'views/post-form'
 	'models/post'
 	], (Backbone, AppView, AboutView, PostsView, PostView, PostDetailView, PostFormView, PostModel) ->
-	class AppRouter extends App.Router
+	class AppRouter extends Backbone.Router
 		routes: 
 			'': 'index'
 			'about': 'about'
 			'posts': 'posts'
+			'posts/new': 'postNew'
 			'posts/:id': 'postDetail'
 			'posts/:id/edit': 'postEdit'
 		index: () ->
@@ -38,8 +39,7 @@ define [
 			App.showView(new PostFormView(model: post))
 			
 		postNew: () ->
-			post = new PostModel()
-			console.log('show post edit', post)
-			App.showView(new PostFormView(model: post))
+			console.log('show post form')
+			App.showView(new PostFormView())
 		
 	

@@ -4,7 +4,7 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		template: JST['app/scripts/templates/post.hbs']
 		#Events listening for
 		events: 
-			'click .post': 'itemClickHandler'
+			'click .media': 'itemClickHandler'
 			'click .edit': 'editItemHandler'
 			'click .delete' : 'deleteItemHandler'
 		#Setup event binding
@@ -20,6 +20,8 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		
 		#Handle when a item is clicked
 		itemClickHandler: (e) ->
+			#e.preventDefault()
+			#App.router.navigate('#/posts/'+@model.id)
 			Backbone.trigger('post:click', @)
 			console.log(@)
 		
@@ -28,8 +30,14 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 			console.log(@)
 		
 		deleteItemHandler: (e) ->
-			Backbone.trigger('post:delete', @)
-			console.log(@)
+			e.preventDefault()
+			confirmDelete = confirm('Are you sure you want to delete this?')
+			if confirmDelete
+				Backbone.trigger('post:delete', @model) 
+				@model.destroy(success: ()->
+					App.router.navigate('#/posts')
+				)
+			console.warn(@)
 		
 		close: () ->
 			@unbind()

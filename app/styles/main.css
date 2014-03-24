@@ -1,5 +1,5 @@
 @import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
-@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css');
+/*@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css');*/
 
 
 body {
@@ -21,10 +21,25 @@ body {
 .jumbotron img{
     margin: 15px auto;
 }
-
+.post{
+	cursor:pointer;
+	padding: 10px 5px;
+	border-bottom: 1px solid #eee;
+}
+.post:hover{
+	background: #eee;
+}
 .post img{
-    width:55px;
-    margin-right: 10px;
+  width:55px;
+}
+.post .actions{
+	opacity:0;
+}
+.post:hover .actions{
+ opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
 }
 footer {
     

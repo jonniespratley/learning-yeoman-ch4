@@ -13,32 +13,13 @@ define([
 		escape:      /\{\{\{([\s\S]+?)\}\}\}/g,         #// {{{ title }}}
 
 	Backbone.View::close = ->
-		console.log('Backbone.View.close()', @)
+		console.warn('Backbone.View.close()', @)
 		#@$el.fadeToggle()
 		#@remove()
 		#@$el.hide()
 		@unbind()
 		@onClose() if @onClose
-		
-		
-	#Layer of abstraction
-	class View extends Backbone.View
-		@constructor: () ->
-			console.log 'View init', @
-		
-	class Model extends Backbone.Model
-		idAttribute: '_id'
-		@constructor: () ->
-			console.log 'Model init', @   
-	    
-	class Collection extends Backbone.Collection
-		@constructor: () ->
-	    console.log 'Collection init', @    
 	
-	class Router extends Backbone.Router
-		@constructor: () ->
-	    console.log 'Router init', @    
-
 	App = App or {}
 	App.Config or (App.Config = {})
 	App.Models or (App.Models = {})
@@ -46,29 +27,24 @@ define([
 	App.Routers or (App.Routers = {})
 	App.Views or (App.Views = {})
 	App.Templates or (App.Templates = {})
+	
 	window.App =
-		Model: Model
-		View: View
-		Collection: Collection
-		Router: Router
 		log: () ->
 			console?.log(arguments) if @debug
 		el: '.page'
 		models : []
-		childViews : null
+		childViews : {}
 		currentView : null
 		debug: true
 		session: null
-		
-		init : (config) ->
-			@Config = config if config
-			@childViews = {}
-			#@initMenu()
-			@log(@)
-			#@initMenu()
+		bootstrap: (config, router) ->
+			@config = config if config
+			@router = new router() if router
+			Backbone.history.start()
 			return @
+		
 		showView : (view) ->
-			console.log('App.showView', view)
+			console.warn('App.showView', view)
 			#Close current view
 			@currentView.close() if @currentView
 			
