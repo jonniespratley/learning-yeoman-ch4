@@ -12,7 +12,7 @@ define(['jquery', 'backbone', 'underscore', 'routes/app'], ($, Backbone, _, AppR
 			
 			#Watch hash change events
 			try
-				Backbone.history.start(slient: true, pushState: true)
+				Backbone.history.start(slient: true, pushState: false)
 				router.navigate('_SpecRunner.html')
 			catch error
 				console.log error
