@@ -41,7 +41,6 @@ define([
 		log: () ->
 			console?.log(arguments) if @debug
 		showView : (view) ->
-			console.warn('App.showView', view)
 			#Close current view
 			@currentView.close() if @currentView
 			
