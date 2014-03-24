@@ -1,32 +1,32 @@
-define(['jquery', 'backbone', 'routes/app'], ($, Backbone, AppRouter) ->
+define(['jquery', 'backbone', 'underscore', 'routes/app'], ($, Backbone, _, AppRouter) ->
 	###
 	Backbone App Router Tests
 	###
-	describe "App Router", ->
-		router = null
-		routerSpy = null
-		fixture = $('<div id="jasmine-app"></div>')
-		#sandbox = sandbox()
+	router = null
+	routerSpy = null
+	describe "AppRouter:", ->
+		
 		beforeEach ->
-			#setFixtures(sandbox)
-			console.log('beforeEach')
 			router = new AppRouter()
 			routerSpy = jasmine.createSpy()
 			
 			#Watch hash change events
 			try
-				Backbone.history.start(slient: true, pushState: true) if not Backbone.history.started
-				router.navigate('/')
+				Backbone.history.start(slient: true, pushState: true)
+				router.navigate('_SpecRunner.html')
 			catch error
 				console.log error
 			
-		
 		afterEach ->
-			router.navigate('/')
+			router.navigate('_SpecRunner.html')
 		
+		it "should have the right amount of routes", ->
+			expect(_.size(router.routes)).toEqual 6
+
 		it 'should call the index route', ->
-			router.bind('route:index', routerSpy, @)
-			router.navigate('', trigger: true)
+			router.bind('route:index', routerSpy)
+			router.navigate('', true)
+			expect(routerSpy.wasCalled).toBe(true)
 		
 	
 )

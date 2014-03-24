@@ -29,9 +29,7 @@ body {
 	padding: 10px 5px;
 	border-bottom: 1px solid #eee;
 }
-.post:hover{
-	background: #eee;
-}
+
 .post img{
   width:55px;
 }

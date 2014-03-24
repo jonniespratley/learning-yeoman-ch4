@@ -12,11 +12,9 @@ define([
 		interpolate: /\{\{[^#\{]([\s\S]+?)[^\}]\}\}/g,  #// {{ title }}
 		escape:      /\{\{\{([\s\S]+?)\}\}\}/g,         #// {{{ title }}}
 
+	#Handle cleaning up zombie views.
 	Backbone.View::close = ->
-		console.warn('Backbone.View.close()', @)
-		#@$el.fadeToggle()
-		#@remove()
-		#@$el.hide()
+		@remove()
 		@unbind()
 		@onClose() if @onClose
 	
@@ -29,20 +27,19 @@ define([
 	App.Templates or (App.Templates = {})
 	
 	window.App =
-		log: () ->
-			console?.log(arguments) if @debug
 		el: '.page'
-		models : []
 		childViews : {}
 		currentView : null
 		debug: true
 		session: null
 		bootstrap: (config, router) ->
 			@config = config if config
-			@router = new router() if router
-			Backbone.history.start()
+			if router
+				@router = new router() 
+				Backbone.history.start()
 			return @
-		
+		log: () ->
+			console?.log(arguments) if @debug
 		showView : (view) ->
 			console.warn('App.showView', view)
 			#Close current view
@@ -53,17 +50,8 @@ define([
 						
 			#Render current view
 			@currentView.render()
+			
+			#Inject the views element that has the compiled html
 			$(@el).html(@currentView.el)
 			
-			#Listen for menu changes and toggle active element
-		initMenu: () ->
-			$(document).ready(() ->
-				$('.nav').on('click', 'a', (e) ->
-					#Clear active menu
-					$(e.currentTarget).parents().find('.active').removeClass('active')
-					#Set active menu
-					$(e.currentTarget).parent().addClass('active')
-				)
-			)
-		
 )

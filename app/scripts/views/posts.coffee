@@ -1,4 +1,4 @@
-define ['jquery', 'app', 'backbone','templates', 'collections/posts', 'views/post'], ($, App, Backbone, JST, PostsCollection, PostView) ->
+define ['jquery', 'underscore', 'backbone','templates', 'collections/posts', 'views/post'], ($, _, Backbone, JST, PostsCollection, PostView) ->
 	class PostsView extends Backbone.View
 		template: JST['app/scripts/templates/posts.hbs']
 		initialize: () ->
@@ -27,4 +27,9 @@ define ['jquery', 'app', 'backbone','templates', 'collections/posts', 'views/pos
 		renderAll: () ->
 			@collection.each(@renderOne, @)
 		
+		#Cleanup child views when closed
+		onClose: () ->
+			_.each(@childViews, (view)->
+				view.remove()
+			)
 	
