@@ -30,19 +30,22 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 			modelData = {}
 
 			#Each name/value in data set on the modelData
-			_.each(formData, (i, o) =>
-				console.log(i, o)
+			_.each(formData, (o) ->
+				console.log( o)
 				#Set each name=value
 				modelData[o.name] = o.value
 			)
 			
 			#Save model
-			@model.save(modelData)
+			@model.save(modelData, 
+				success: (data) ->
+					#alert(data.toString())
+			)
 			
 			
 			Backbone.trigger('post:save', @model)
 			
-			console.log(@model)
+			console.log(modelData, @model)
 		
 		editItemHandler: (e) ->
 			Backbone.trigger('post:edit', @)

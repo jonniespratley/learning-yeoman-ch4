@@ -2,7 +2,7 @@ define ['underscore', 'backbone', 'models/post'], (_, Backbone, PostModel) ->
 	class PostsCollection extends Backbone.Collection
 		model: PostModel
 		url: ->
-			'/api/v2/learning-yeoman/posts'
+			'/api/v2/learning-yeoman-ch3/posts'
 		initialize: () ->
 			console.log('PostsCollection initialize:',@)
 		parse : (response) ->

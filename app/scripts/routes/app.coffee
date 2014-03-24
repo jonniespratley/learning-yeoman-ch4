@@ -36,5 +36,10 @@ define [
 			post = new PostModel(_id: id)
 			console.log('show post edit', post)
 			App.showView(new PostFormView(model: post))
+			
+		postNew: () ->
+			post = new PostModel()
+			console.log('show post edit', post)
+			App.showView(new PostFormView(model: post))
 		
 	
