@@ -7,6 +7,15 @@ var lrSnippet = require('connect-livereload')({
 var mountFolder = function(connect, dir) {
 		return connect.static(require('path').resolve(dir));
 	};
+	
+	var serverEndpoint = 'http://jonniespratley.me:8181/api/v2/learning-yeoman';
+	var proxyConfig = {
+		proxy : {
+		    forward : {
+		        '/api' : serverEndpoint
+		    }
+		}
+	};
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -15,6 +24,7 @@ var mountFolder = function(connect, dir) {
 // 'test/spec/**/*.js'
 // templateFramework: 'handlebars'
 module.exports = function(grunt) {
+	grunt.loadNpmTasks('grunt-connect-proxy');
 	// show elapsed time at the end
 	require('time-grunt')(grunt);
 	// load all grunt tasks
@@ -68,7 +78,9 @@ module.exports = function(grunt) {
 				options: {
 					middleware: function(connect) {
 						return [
-						lrSnippet, mountFolder(connect, '.tmp'), mountFolder(connect, yeomanConfig.app)];
+						require('json-proxy').initialize(proxyConfig), 
+						lrSnippet, 
+						mountFolder(connect, '.tmp'), mountFolder(connect, yeomanConfig.app)];
 					}
 				}
 			},

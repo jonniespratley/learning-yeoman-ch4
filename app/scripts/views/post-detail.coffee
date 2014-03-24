@@ -22,7 +22,9 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 			console.warn(@)
 		
 		deleteItemHandler: (e) ->
-			Backbone.trigger('post:delete', @)
+			e.preventDefault()
+			ask = confirm('Are you sure you want to delete this?')
+			Backbone.trigger('post:delete', @model) if ask
 			console.warn(@)
 		
 	

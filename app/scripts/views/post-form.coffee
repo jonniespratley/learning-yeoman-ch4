@@ -3,7 +3,7 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		template: JST['app/scripts/templates/post-form.hbs']
 		#Events listening for
 		events: 
-			'click .post': 'itemClickHandler'
+			'submit form': 'formSubmitHandler'
 			'click .edit': 'editItemHandler'
 			'click .delete' : 'deleteItemHandler'
 		#Setup event binding
@@ -19,9 +19,10 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 			@$el.html(@template(@model.toJSON()))
 		
 		#Handle when a item is clicked
-		itemClickHandler: (e) ->
-			Backbone.trigger('post:click', @)
-			console.log(@)
+		formSubmitHandler: (e) ->
+			@model.save()
+			Backbone.trigger('post:save', @model)
+			console.log(@model)
 		
 		editItemHandler: (e) ->
 			Backbone.trigger('post:edit', @)
