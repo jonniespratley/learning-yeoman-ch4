@@ -8,7 +8,7 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		#Setup event binding
 		initialize: () ->
 			_.bindAll(@, "render")
-			console.log('PostDetailView initialize:', @)
+			#console.log('PostDetailView initialize:', @)
 			#@model.fetch(dataType: 'jsonp') if @model.id
 			@model.fetch() if @model.id
 			@model.bind("change", @render, @)
@@ -20,7 +20,7 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		
 		editItemHandler: (e) ->
 			Backbone.trigger('post:edit', @)
-			console.warn(@)
+			#console.warn(@)
 		
 		deleteItemHandler: (e) ->
 			e.preventDefault()
@@ -30,6 +30,6 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 				@model.destroy(success: ()->
 					App.router.navigate('#/posts')
 				)
-			console.warn(@)
+			#console.warn(@)
 		
 	

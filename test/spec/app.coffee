@@ -12,7 +12,6 @@ define(['jquery', 'backbone', 'app'], ($, Backbone, App) ->
 		beforeEach(()->
 			$('#fixture').remove();
 			$('body').append('<div id="fixture" class="page"></div>');
-			console.log('beforeEach')
 		)
 		
 		describe "Namespace", ->

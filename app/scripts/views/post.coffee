@@ -10,7 +10,7 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		#Setup event binding
 		initialize: () ->
 			_.bindAll(@, "render")
-			console.log('PostView initialize:', @)
+			#console.log('PostView initialize:', @)
 			@model.bind("change", @render, @)
 			@model.bind("destroy", @close, @)
 		
@@ -23,11 +23,11 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 			e.preventDefault()
 			App.router.navigate('#/posts/'+@model.id)
 			Backbone.trigger('post:click', @)
-			console.log(@)
+			#console.log(@)
 		
 		editItemHandler: (e) ->
 			Backbone.trigger('post:edit', @)
-			console.log(@)
+			#console.log(@)
 		
 		deleteItemHandler: (e) ->
 			e.preventDefault()
@@ -37,7 +37,7 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 				@model.destroy(success: ()->
 					App.router.navigate('#/posts')
 				)
-			console.warn(@)
+			#console.warn(@)
 		
 		close: () ->
 			@unbind()

@@ -12,6 +12,4 @@ define ['underscore', 'backbone'], (_, Backbone) ->
 			created: new Date()
 			modified: new Date()
 			published: true
-		initialize: () ->
-			console.log('PostModel initialize:',@)
 	

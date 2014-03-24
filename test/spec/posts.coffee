@@ -7,7 +7,7 @@ define(['collections/posts'],(PostsCollection) ->
 				options.success()
 			postsCollection = new PostsCollection()
 
-		it 'should send a GET request(/api/v2/learning-yeoman-ch3/posts)', ->
+		it 'should send a GET request', ->
 			postsCollection.fetch()
 			request = $.ajax.mostRecentCall.args[0]
 			expect(request.url).toEqual('/api/v2/learning-yeoman-ch3/posts');

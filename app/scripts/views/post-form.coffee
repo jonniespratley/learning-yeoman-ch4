@@ -7,7 +7,7 @@ define ['jquery', 'underscore', 'backbone', 'templates', 'models/post'], ($, _, 
 		#Setup event binding
 		initialize: () ->
 			_.bindAll(@, "render")
-			console.log('PostFormView initialize:', @)
+			#console.log('PostFormView initialize:', @)
 			if @model?
 			#	@model.fetch() 
 				@model.bind("change", @render, @)
