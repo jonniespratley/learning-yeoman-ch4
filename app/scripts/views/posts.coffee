@@ -4,7 +4,7 @@ define ['jquery', 'app', 'backbone','templates', 'collections/posts', 'views/pos
 		initialize: () ->
 			_.bindAll(@, "render")
 			@collection = new PostsCollection()
-			@collection.fetch(dataType: 'jsonp')
+			@collection.fetch()
 			@collection.bind('posts:fetch:complete', @render, @)
 			@childViews = []
 			@listenTo(@collection, 'add', @renderOne)

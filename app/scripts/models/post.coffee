@@ -3,7 +3,7 @@ define ['underscore', 'backbone'], (_, Backbone) ->
 	class PostModel extends Backbone.Model
 		idAttribute: '_id'
 		url: ->
-			'http://jonniespratley.me:8181/api/v2/learning-yeoman/posts/'+ @id
+			'/api/v2/learning-yeoman/posts/'+ @id
 		defaults:
 			title: 'Post Title'
 			slug: 'post-title'
