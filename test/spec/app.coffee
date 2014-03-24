@@ -2,7 +2,7 @@ define(['jquery', 'backbone', 'app'], ($, Backbone, App) ->
 	router = null
 	routerSpy = null
 	fixture = $('<div id="jasmine-app"></div>')
-	testApp = App.init()
+	testApp = App.bootstrap()
 	###
 	Backbone App Tests
 	###

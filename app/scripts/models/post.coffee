@@ -8,7 +8,7 @@ define ['underscore', 'backbone'], (_, Backbone) ->
 			slug: 'post-title'
 			image: 'http://placehold.it/150x150&text=Image'
 			body: 'This is an example post with default data.'
-			tags: ['featured', 'post']
+			tags: 'featured'
 			created: new Date()
 			modified: new Date()
 			published: true
