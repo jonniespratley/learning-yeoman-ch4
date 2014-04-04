@@ -14,10 +14,13 @@ define(['jquery', 'backbone', 'app'], ($, Backbone, App) ->
 			$('body').append('<div id="fixture" class="page"></div>');
 		)
 		
+
 		describe "Namespace", ->
 			it "provides the 'App' object", ->
 				
 			
+		describe 'App', ->
+
 			it 'should have session property', ->
 				expect( testApp.session ).toBe(null)
 			
