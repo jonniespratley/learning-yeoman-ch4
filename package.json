@@ -41,7 +41,7 @@
 		"karma-phantomjs-launcher": "~0.1.2",
 		"karma": "~0.10.9",
 		"grunt-karma": "~0.6.2",
-		"grunt-connect-proxy": "^0.1.10",
+		"grunt-connect-proxy": "^0.1.2",
 		"json-proxy": "^0.1.2"
 	},
 	"engines": {
