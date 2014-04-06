@@ -14,6 +14,8 @@ require.config
 		backbone: '../bower_components/backbone/backbone'
 		underscore: '../bower_components/underscore/underscore'
 		handlebars: '../bower_components/handlebars/handlebars'
+		app: './app'
+		config: './config'
 	
 
 require ['jquery','backbone', 'config', 'app', 'routes/app'], ($, Backbone, Config, App, AppRouter) ->
