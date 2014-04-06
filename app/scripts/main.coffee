@@ -19,7 +19,5 @@ require.config
 require ['jquery','backbone', 'config', 'app', 'routes/app'], ($, Backbone, Config, App, AppRouter) ->
 	$ ->
 		console.log 'App ready', @
-		window.App = App.init(Config)
-		new AppRouter()
-		Backbone.history.start()
-
+		
+		window.app = App.bootstrap(Config, AppRouter)

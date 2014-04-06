@@ -1,7 +1,13 @@
-@import url('bootstrap.min.css');
+@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
+/*@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css');*/
+
+
 body {
     background: #fff;
     padding: 10px 25px;
+}
+.container{
+	max-width:760px;
 }
 .brand a {
     color: #999;
@@ -9,7 +15,6 @@ body {
 }
 
 .jumbotron {
-    text-transform: lowercase;
     text-align: center;
     padding: 15px 25px;
 }
@@ -19,14 +24,33 @@ body {
 .jumbotron img{
     margin: 15px auto;
 }
+.post{
+	cursor:pointer;
+	padding: 10px 5px;
+	
+}
 
 .post img{
-    width:55px;
-    margin-right: 10px;
+  width:55px;
+}
+.post .actions{
+	opacity:0;
+}
+.post:hover .actions{
+ opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
 }
 footer {
     
     font-size: .8em;
     color: #777 !important;
     text-align: center;
+}
+.img-placeholder{
+	width:100%;
+}
+.page-header{
+	margin:15px 0;
 }

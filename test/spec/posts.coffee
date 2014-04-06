@@ -3,14 +3,15 @@ define(['collections/posts'],(PostsCollection) ->
 	
 	describe 'Post Collection:', ->
 		beforeEach ->
+			spyOn($, "ajax").andCallFake (options) ->
+				options.success()
 			postsCollection = new PostsCollection()
 
-		it 'should ...', ->
-
-		it 'should have url set to http://jonniespratley.me:8181/api/v2/learning-yeoman/posts', ->
-			#expect(postsCollection.url()).toEqual('http://jonniespratley.me:8181/api/v2/angular-cms/posts')
-		
-		it 'should fetch data from the server', ->
-
+		it 'should send a GET request', ->
+			postsCollection.fetch()
+			request = $.ajax.mostRecentCall.args[0]
+			expect(request.url).toEqual('/api/v2/learning-yeoman-ch3/posts');
+			expect(request.type).toEqual('GET')
+			
 
 )	

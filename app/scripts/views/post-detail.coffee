@@ -1,16 +1,16 @@
 define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) ->
-	class PostView extends Backbone.View
-		className: 'post'
-		template: JST['app/scripts/templates/post.hbs']
+	class PostDetailView extends Backbone.View
+		template: JST['app/scripts/templates/post-detail.hbs']
 		#Events listening for
 		events: 
-			'click .media': 'itemClickHandler'
 			'click .edit': 'editItemHandler'
 			'click .delete' : 'deleteItemHandler'
 		#Setup event binding
 		initialize: () ->
 			_.bindAll(@, "render")
-			#console.log('PostView initialize:', @)
+			#console.log('PostDetailView initialize:', @)
+			#@model.fetch(dataType: 'jsonp') if @model.id
+			@model.fetch() if @model.id
 			@model.bind("change", @render, @)
 			@model.bind("destroy", @close, @)
 		
@@ -18,16 +18,9 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		render: () ->
 			@$el.html(@template(@model.toJSON()))
 		
-		#Handle when a item is clicked
-		itemClickHandler: (e) ->
-			e.preventDefault()
-			App.router.navigate('#/posts/'+@model.id)
-			Backbone.trigger('post:click', @)
-			#console.log(@)
-		
 		editItemHandler: (e) ->
 			Backbone.trigger('post:edit', @)
-			#console.log(@)
+			#console.warn(@)
 		
 		deleteItemHandler: (e) ->
 			e.preventDefault()
@@ -39,6 +32,4 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 				)
 			#console.warn(@)
 		
-		close: () ->
-			@unbind()
 	
