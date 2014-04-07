@@ -1,42 +1,37 @@
 define(() ->
-	return Config =
+	return window.Config =
 		baseurl: document.location.origin
 		sitetitle: "Learning Yeoman"
 		sitedesc: "a starting point for a modern backbone.js application."
 		sitecopy: "2014 Copywrite"
 		version: '0.0.1'
 		email: "admin@email.com"
-		debug: true	
-		feature: 
+		debug: true
+		feature:
 			image: 'http://goo.gl/fOq55C'
 			title: 'Chapter 4'
 			body: 'A starting point for a modern backbone.js application.'
-
 		features: [
-			id: 1, title: "HTML5", body: "Using HTML5 for better user experience", image: "https://dl.dropboxusercontent.com/u/26906414/cdn/img/learning-yeoman/feature-html5.png"
+			title: "CoffeeScript"
+			body: "CoffeeScript is a little language that compiles into JavaScript..."
+			image: "http://goo.gl/DTiliC"
 		,
-			id: 2, title: "BackboneJS", body: "Framework of choice is Backbone.js", image: "https://dl.dropboxusercontent.com/u/26906414/cdn/img/learning-yeoman/feature-backbone.png"
+			title: "BackboneJS"
+			body: "Backbone.js gives structure to web applications by providing..."
+			image: "http://goo.gl/4mwB1g"
 		,
-			id: 3, title: "Twitter Bootstrap", body: "UI is Twitter Bootstrap 3.0.", image: "https://dl.dropboxusercontent.com/u/26906414/cdn/img/learning-yeoman/feature-bootstrap.png"
+			title: "RequireJS"
+			body: "RequireJS is a JavaScript file and module loader..."
+			image: "http://goo.gl/GOc6Mr"
 		]
-		session: 
-			authorized: false
-			user: null
-		layout: 
-			header: "views/_header.html"
-			sidebar: "views/_sidebar.html"
-			content:"views/_content.html"
-			footer: "views/_footer.html"
 		menu: [
-			title: "Home" 
-			href: "/home"
+			title: "Home"
+			href: "/"
 		,
-			title: "About" 
+			title: "About"
 			href: "/about"
 		,
-			title: "Posts" 
+			title: "Posts"
 			href: "/posts"
 		]
-
-	
 )

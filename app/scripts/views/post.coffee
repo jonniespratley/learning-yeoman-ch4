@@ -21,9 +21,8 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		#Handle when a item is clicked
 		itemClickHandler: (e) ->
 			e.preventDefault()
-			App.router.navigate('#/posts/'+@model.id)
 			Backbone.trigger('post:click', @)
-			#console.log(@)
+			Backbone.history.navigate('#/posts/'+@model.id)
 		
 		editItemHandler: (e) ->
 			Backbone.trigger('post:edit', @)
@@ -35,7 +34,7 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 			if confirmDelete
 				Backbone.trigger('post:delete', @model) 
 				@model.destroy(success: ()->
-					App.router.navigate('#/posts')
+					Backbone.history.navigate('#/posts')
 				)
 			#console.warn(@)
 		
