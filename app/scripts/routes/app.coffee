@@ -37,16 +37,16 @@ define [
 		postDetail: (id) ->
 			post = new PostModel(_id: id)
 			console.log('show post detail', post)
-			@showView(new PostDetailView(model: post))
+			@showView(new PostDetailView(el: '.content', model: post))
 		
 		postEdit: (id) ->
 			post = new PostModel(_id: id)
 			console.log('show post edit', post)
-			@showView(new PostFormView(model: post))
+			@showView(new PostFormView(el: '.content', model: post))
 			
 		postNew: () ->
 			console.log('show post form')
-			@showView(new PostFormView())
+			@showView(new PostFormView(el: '.content'))
 
 		showView: (view) ->
 			@childViews[view.cid] = view
