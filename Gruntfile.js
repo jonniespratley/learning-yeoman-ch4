@@ -345,5 +345,5 @@ module.exports = function(grunt) {
 	'htmlmin', 'concat', 'cssmin', 'uglify', 'copy', 'rev', 'usemin']);
 
 	grunt.registerTask('default', ['jshint', 'test', 'build']);
-	grunt.registerTask('heroku:development', ['test', 'build']);
+	grunt.registerTask('heroku:development', ['build']);
 };
