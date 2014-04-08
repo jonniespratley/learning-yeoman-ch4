@@ -1,29 +1,56 @@
 define [
-	'backbone' 
-	'views/app' 
+	'backbone'
+	'config'
+	'views/app'
+	'views/main'
 	'views/about'
 	'views/posts'
 	'views/post'
+	'views/post-detail'
+	'views/post-form'
 	'models/post'
-	], (Backbone, AppView, AboutView, PostsView, PostView, PostModel) ->
+	], (Backbone, Config, AppView, MainView, AboutView, PostsView, PostView, PostDetailView, PostFormView, PostModel) ->
+
 	class AppRouter extends Backbone.Router
+		currentView: null
+		childViews: {}
 		routes: 
 			'': 'index'
 			'about': 'about'
 			'posts': 'posts'
+			'posts/new': 'postNew'
 			'posts/:id': 'postDetail'
+			'posts/:id/edit': 'postEdit'
 		index: () ->
 			console.log('#/index route')
-			App.showView(new AppView())
+			window.App = new AppView(el: '.container', model: Config)
+			@showView(new MainView(el: '.content', model: Config))
+		
 		about: () ->
 			console.log('#/about route')
-			App.showView(new AboutView())
+			@showView(new AboutView(el: '.content'))
+		
 		posts: () ->
 			console.log('posts view')
-			App.showView(new PostsView())
+			@showView(new PostsView(el: '.content'))
 		
 		postDetail: (id) ->
-			console.log('show post detail')
-			post = new PostModel(id)
-			App.showView(new PostView(model: post, el: '.content'))
-	
+			post = new PostModel(_id: id)
+			console.log('show post detail', post)
+			@showView(new PostDetailView(el: '.content', model: post))
+		
+		postEdit: (id) ->
+			post = new PostModel(_id: id)
+			console.log('show post edit', post)
+			@showView(new PostFormView(el: '.content', model: post))
+			
+		postNew: () ->
+			console.log('show post form')
+			@showView(new PostFormView(el: '.content'))
+
+		showView: (view) ->
+			@childViews[view.cid] = view
+			@currentView.close() if @currentView
+			@currentView = view
+			@currentView.render()
+			console.log('App.showView', @)

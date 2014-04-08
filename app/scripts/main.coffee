@@ -1,25 +1,38 @@
 #/*global require*/
 'use strict'
+
 require.config
 	shim:
 		underscore:
 			exports: '_'
 		backbone:
-			deps: ['underscore', 'jquery']
+			deps: [
+				'underscore'
+				'jquery'
+			]
 			exports: 'Backbone'
+		bootstrap:
+			deps: ['jquery'],
+			exports: 'jquery'
 		handlebars:
-				exports: 'Handlebars'
+			exports: 'Handlebars'
 	paths:
 		jquery: '../bower_components/jquery/jquery'
 		backbone: '../bower_components/backbone/backbone'
 		underscore: '../bower_components/underscore/underscore'
+		bootstrap: '../bower_components/sass-bootstrap/dist/js/bootstrap'
 		handlebars: '../bower_components/handlebars/handlebars'
-	
+		config: './config'
 
-require ['jquery','backbone', 'app', 'routes/app'], ($, Backbone, App, AppRouter) ->
-	$ ->
-		console.log 'App ready', @
-		window.App = App.init()
-		new AppRouter()
-		Backbone.history.start()
+require [
+	'backbone'
+	'routes/app'
+], (Backbone, AppRouter) ->
 
+	Backbone.View::close = ->
+		@unbind()
+		@onClose() if @onClose
+
+
+	window.router = new AppRouter()
+	Backbone.history.start()

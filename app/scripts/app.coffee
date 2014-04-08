@@ -1,92 +1,56 @@
-define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) ->
+define([
+	'jquery'
+	'underscore'
+	'backbone'
+	'handlebars'
+	'templates'
+	], ($, _, Backbone, Handlebars, JST) ->
+	
 	# Add your coffee-script here
 	_.templateSettings = 
 		evaluate:    /\{\{#([\s\S]+?)\}\}/g,            #// {{# console.log("blah") }}
 		interpolate: /\{\{[^#\{]([\s\S]+?)[^\}]\}\}/g,  #// {{ title }}
 		escape:      /\{\{\{([\s\S]+?)\}\}\}/g,         #// {{{ title }}}
 
+	#Handle cleaning up zombie views.
 	Backbone.View::close = ->
-		console.log('Backbone.View.close()', @)
-		#@$el.fadeToggle()
-		#@remove()
-		#@$el.empty()
+		@remove()
 		@unbind()
 		@onClose() if @onClose
 	
-	App =
-		el: '.content'
-		models : []
-		childViews : null
+	App = App or {}
+	App.Config or (App.Config = {})
+	App.Models or (App.Models = {})
+	App.Collections or (App.Collections = {})
+	App.Routers or (App.Routers = {})
+	App.Views or (App.Views = {})
+	App.Templates or (App.Templates = {})
+	
+	window.App =
+		el: '.page'
+		childViews : {}
 		currentView : null
 		debug: true
 		session: null
-		Collections: {}
-		Models: {}
-		View: {}
-		Routers: {}
-		pubsub: 
-			listeners: {}
-			published: {}
-			pub: (name, data) ->
-				console.log('pub', name, data)
-				App.pubsub.published[name] = data
-				Backbone.trigger(name, data)
-				
-			sub: (name, callback) ->
-				App.pubsub.listeners[name] = callback
-				console.log('sub', name, callback)
-				Backbone.on(name, callback)
-			
-		
-		init : () ->
-			@childViews = {}
-			@initMenu()
-			@log(@)
-			@initMenu()
+		bootstrap: (config, router) ->
+			@config = config if config
+			if router
+				@router = new router() 
+				Backbone.history.start()
 			return @
 		log: () ->
-			console.log(arguments) if @debug
-		
+			console?.log(arguments) if @debug
 		showView : (view) ->
-			@childViews[view.cid] = view
+			#Close current view
 			@currentView.close() if @currentView
+			
+			#Set current view
 			@currentView = view
-			#$(@el).html('<div/>').attr('class', 'page');
+						
+			#Render current view
 			@currentView.render()
-			#$('body').html(@currentView.el)
-			$(@el).html(App.currentView.render().el)
-			#$(@el).html("<div data-view-cid='#{view.cid}'></div>");
-			###
-			_.each(@childViews, (_view, _cid) ->
-				console.log(_view, _cid)
-				@$("[data-view-cid='#{_cid}']").replaceWith(_view.render())
-			)
-			###
-			console.log('App.showView', @)
-		initMenu: () ->
-			#Listen for menu changes and toggle active element
-			$(document).ready(() ->
-				$('.nav').on('click', 'a', (e) ->
-					#Clear active menu
-					$(e.currentTarget).parents().find('.active').removeClass('active')
-					#Set active menu
-					$(e.currentTarget).parent().addClass('active')
-				)
-			)
-		
-		initMenu: () ->
-			#Listen for menu changes and toggle active element
-			$(document).ready(() ->
-				$('.nav').on('click', 'a', (e) ->
-					#Clear active menu
-					$(e.currentTarget).parents().find('.active').removeClass('active')
-					#Set active menu
-					$(e.currentTarget).parent().addClass('active')
-				)
-			)
-
-
-		
-		
-		
-	
+			
+			#Inject the views element that has the compiled html
+			$(@el).html(@currentView.el)
+			
+)

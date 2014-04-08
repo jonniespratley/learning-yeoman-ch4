@@ -2,34 +2,39 @@ define(['jquery', 'backbone', 'app'], ($, Backbone, App) ->
 	router = null
 	routerSpy = null
 	fixture = $('<div id="jasmine-app"></div>')
-	window.testApp = App.init()
+	testApp = App.bootstrap()
 	###
 	Backbone App Tests
 	###
-	describe "Testing a Backbone App", ->
+	describe "My Backbone Project", ->
 		#sandbox = sandbox()
 		
 		beforeEach(()->
-			#setFixtures(sandbox)
-			console.log('beforeEach')
+			$('#fixture').remove();
+			$('body').append('<div id="fixture" class="page"></div>');
 		)
 		
-		describe 'the window.App global', ->
+
+		describe "Namespace", ->
+			it "provides the 'App' object", ->
+				
+			
+		describe 'App', ->
+
 			it 'should have session property', ->
 				expect( testApp.session ).toBe(null)
 			
 			it 'should have Collections property', ->
-				
+				expect( testApp.Collections ).toBeDefined
 			
 			it 'should have Models property', ->
-				
+				expect( testApp.Models ).toBeDefined	
 			
 			it 'should have Routers property', ->
-				
+				expect( testApp.Routers ).toBeDefined
 			
 			it 'should have Views property', ->
-				
+				expect( testApp.Views ).toBeDefined
 			
-		
-	
+
 )
