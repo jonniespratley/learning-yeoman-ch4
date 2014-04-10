@@ -133,7 +133,12 @@ module.exports = function(grunt) {
 				options: {
 					keepRunner: true,
 					summary: true,
+					//outfile: 'test/index.html',
 					specs: ['.tmp/spec/**/*.js'],
+					vendor: [
+						'<%= yeoman.app %>/bower_components/jquery/jquery.js',
+					//	'<%= yeoman.test %>/bower_components/jasmine-jquery/lib/jasmine-jquery.js'
+					],
 					template: require('grunt-template-jasmine-requirejs'),
 					templateOptions: {
 						requireConfigFile: '.tmp/scripts/main.js',
@@ -346,4 +351,5 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('default', ['jshint', 'test', 'build']);
 	grunt.registerTask('heroku:development', ['build']);
+
 };

@@ -8,7 +8,7 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		#Setup event binding
 		initialize: () ->
 			_.bindAll(@, "render")
-			#console.log('PostDetailView initialize:', @)
+			console.log('PostDetailView initialize:', @)
 			#@model.fetch(dataType: 'jsonp') if @model.id
 			@model.fetch() if @model.id
 			@model.bind("change", @render, @)
@@ -24,12 +24,14 @@ define ['jquery', 'underscore', 'backbone', 'templates'], ($, _, Backbone, JST) 
 		
 		deleteItemHandler: (e) ->
 			e.preventDefault()
-			confirmDelete = confirm('Are you sure you want to delete this?')
-			if confirmDelete
+			if confirm('Are you sure you want to delete this?')
 				Backbone.trigger('post:delete', @model) 
 				@model.destroy(success: ()->
-					App.router.navigate('#/posts')
+					Backbone.history.navigate('#/posts')
 				)
 			#console.warn(@)
-		
+
+		#Cleanup child views when closed
+		onClose: () ->
+
 	

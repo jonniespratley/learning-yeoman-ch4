@@ -49,7 +49,7 @@ define [
 			@showView(new PostFormView(el: '.content'))
 
 		showView: (view) ->
-			@childViews[view.cid] = view
+			#@childViews[view.cid] = view
 			@currentView.close() if @currentView
 			@currentView = view
 			@currentView.render()
