@@ -161,8 +161,7 @@ module.exports = function(grunt) {
 								backbone: '../../<%= yeoman.app %>/bower_components/backbone/backbone',
 								underscore: '../../<%= yeoman.app %>/bower_components/underscore/underscore',
 								handlebars: '../../<%= yeoman.app %>/bower_components/handlebars/handlebars',
-								config: 'config',
-								app: 'app'
+								config: 'config'
 							}
 						}
 					}

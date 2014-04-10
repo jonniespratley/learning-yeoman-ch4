@@ -13,8 +13,8 @@ define(['models/post'],(PostModel) ->
 			expect(postModel.get('slug')).toEqual('post-title')
 			expect(postModel.get('published')).toEqual(true)
 			expect(postModel.get('body')).toEqual('This is an example post with default data.')
-			expect(postModel.get('image')).toEqual('http://placehold.it/150x150&text=Image')
-			expect(postModel.get('tags')).toEqual('featured')
+			expect(postModel.get('image')).toEqual('//placehold.it/250&text=Image')
+			expect(postModel.get('tags')).toEqual(['featured', 'post'])
 		
 		it 'should set attributes', ->
 			postModel = new PostModel(title: 'NewPost', image: '', tags: 'jasmine')

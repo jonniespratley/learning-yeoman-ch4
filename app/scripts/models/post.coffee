@@ -4,9 +4,9 @@ define ['underscore', 'backbone'], (_, Backbone) ->
 		idAttribute: '_id'
 		urlRoot: '/api/v2/learning-yeoman-ch3/posts'
 		defaults:
-			title: 'post-title'
+			title: 'Post Title'
 			slug: 'post-title'
-			image: 'http://placehold.it/250&text=Image'
+			image: '//placehold.it/250&text=Image'
 			body: 'This is an example post with default data.'
 			tags: ['featured', 'post']
 			created: null
