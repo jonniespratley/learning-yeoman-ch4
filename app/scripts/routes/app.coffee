@@ -23,7 +23,7 @@ define [
 			'posts/:id/edit': 'postEdit'
 		index: () ->
 			console.log('#/index route')
-			window.App = new AppView(el: '.container', model: Config)
+			App = new AppView(el: '.container', model: Config)
 			@showView(new MainView(el: '.content', model: Config))
 		
 		about: () ->
