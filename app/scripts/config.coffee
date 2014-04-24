@@ -18,7 +18,7 @@ define(() ->
 		,
 			title: "BackboneJS"
 			body: "Backbone.js gives structure to web applications by providing..."
-			image: "http://goo.gl/4mwB1g"
+			image: "https://dl.dropboxusercontent.com/u/26906414/cdn/img/learning-yeoman/feature-backbone.png"
 		,
 			title: "RequireJS"
 			body: "RequireJS is a JavaScript file and module loader..."

@@ -1,7 +1,4 @@
 define(['jquery', 'backbone', 'underscore', 'routes/app'], ($, Backbone, _, AppRouter) ->
-	###
-	Backbone App Router Tests
-	###
 	router = null
 	routerSpy = null
 	describe "AppRouter:", ->
@@ -9,13 +6,12 @@ define(['jquery', 'backbone', 'underscore', 'routes/app'], ($, Backbone, _, AppR
 		beforeEach ->
 			router = new AppRouter()
 			routerSpy = jasmine.createSpy()
-			
-			#Watch hash change events
+
 			try
 				Backbone.history.start(slient: true, pushState: false)
 				router.navigate('_SpecRunner.html')
 			catch error
-				#console.log error
+				console.log error
 			
 		afterEach ->
 			router.navigate('_SpecRunner.html')

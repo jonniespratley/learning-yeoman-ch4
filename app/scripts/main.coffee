@@ -26,13 +26,15 @@ require.config
 
 require [
 	'backbone'
+	'app'
 	'routes/app'
-], (Backbone, AppRouter) ->
+], (Backbone, App, AppRouter) ->
 
 	Backbone.View::close = ->
 		@unbind()
 		@onClose() if @onClose
 
+	App.router = new AppRouter()
+	window.App = App
 
-	window.router = new AppRouter()
 	Backbone.history.start()
