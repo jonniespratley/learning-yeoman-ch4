@@ -7,7 +7,7 @@ var lrSnippet = require('connect-livereload')({
 var mountFolder = function(connect, dir) {
 		return connect.static(require('path').resolve(dir));
 	};
-	
+
 	var serverEndpoint = 'http://jonniespratley.me:8181/api/v2/learning-yeoman';
 	var proxyConfig = {
 		proxy : {
@@ -79,8 +79,8 @@ module.exports = function(grunt) {
 				options: {
 					middleware: function(connect) {
 						return [
-						require('json-proxy').initialize(proxyConfig), 
-						lrSnippet, 
+						require('json-proxy').initialize(proxyConfig),
+						lrSnippet,
 						mountFolder(connect, '.tmp'), mountFolder(connect, yeomanConfig.app)];
 					}
 				}
@@ -167,6 +167,8 @@ module.exports = function(grunt) {
 					}
 				}
 			}
+
+
 		},
 		coffee: {
 			options: {
