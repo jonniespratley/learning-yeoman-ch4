@@ -15,7 +15,7 @@ define ['underscore', 'backbone'], (_, Backbone) ->
 		initialize: ->
 			console.log @
 		validate: (attrs, options)->
+			if attrs.title is ''
+				return 'You must provide a title.'
 			if attrs.title.length < 2
 				return 'The title must be at least 2 characters.'
-			else if attrs.title is ''
-				return 'You must provide a title.'

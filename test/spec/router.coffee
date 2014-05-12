@@ -23,7 +23,12 @@ define(['jquery', 'backbone', 'underscore', 'routes/app'], ($, Backbone, _, AppR
 			router.bind('route:index', routerSpy)
 			router.navigate('', true)
 			expect(routerSpy.wasCalled).toBe(true)
-		
+
+		it 'should handle about route', ->
+			router.bind('route:about', routerSpy)
+			router.navigate('', true)
+			expect(routerSpy.wasCalled).toBe(true)
+
 		it 'should handle posts route', ->
 			router.bind('route:posts', routerSpy)
 			router.navigate('#posts', true)

@@ -13,4 +13,5 @@ test/bower_components/
 .grunt
 .project
 _SpecRunner.html
+coverage
 
