@@ -49,6 +49,7 @@ module.exports = function (config) {
 		// enable / disable watching file and executing tests whenever any file changes
 
 		preprocessors: {
+			//'app/scripts/**/*.coffee': ['coffee'],
 			//'test/spec/**/*.coffee': ['coffee'],
 			'.tmp/scripts/**/*.js': ['coverage']
 		},
@@ -87,6 +88,6 @@ module.exports = function (config) {
 
 		// Continuous Integration mode
 		// if true, it capture browsers, run tests and exit
-		singleRun: false
+		singleRun: true
 	});
 };
