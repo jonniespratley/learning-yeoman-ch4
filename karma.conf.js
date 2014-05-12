@@ -1,83 +1,92 @@
 // Karma configuration
 // Generated on Sun Feb 23 2014 17:14:52 GMT-0800 (PST)
 
-module.exports = function(config) {
-  config.set({
+module.exports = function (config) {
+	config.set({
 
-    // base path, that will be used to resolve files and exclude
-    basePath: '',
-
-
-    // frameworks to use
-    frameworks: ['jasmine', 'requirejs'],
+		// base path, that will be used to resolve files and exclude
+		basePath: '',
 
 
-    // list of files / patterns to load in the browser
-    files: [
-      {pattern: '.tmp/scripts/**/*.js', included: false}
-    ],
+		// frameworks to use
+		frameworks: ['jasmine', 'requirejs'],
 
 
-    // list of files to exclude
-    exclude: [
-      '.tmp/scripts/main.js'
-    ],
+		// list of files / patterns to load in the browser
+		files: [
+			{pattern: 'app/bower_components/**/*.js', included: false},
+			{pattern: '.tmp/scripts/**/*.js', included: false},
+			{pattern: '.tmp/spec/**/*.js', included: false},
+			'test/test-main.js'
+		],
 
 
-    // test results reporter to use
-    // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
+		// list of files to exclude
+		exclude: [
+			//'.tmp/scripts/main.js'
+			'app/bower_components/jasmine-jquery/spec'
+		],
 
 
-    // web server port
-    port: 9876,
+		// test results reporter to use
+		// possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
+		reporters: ['progress', 'coverage'],
 
 
-    // enable / disable colors in the output (reporters and logs)
-    colors: true,
+		// web server port
+		port: 9876,
 
 
-    // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+		// enable / disable colors in the output (reporters and logs)
+		colors: true,
 
 
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
-	 	preprocessors: {
-	      'test/spec/**/*.coffee': ['coffee']
-	    },
-
-	    coffeePreprocessor: {
-	      // options passed to the coffee compiler
-	      options: {
-	        bare: true,
-	        sourceMap: false
-	      },
-	      // transforming the filenames
-	      transformPath: function(path) {
-	        return path.replace(/\.coffee$/, '.js');
-	      }
-	    },
+		// level of logging
+		// possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+		logLevel: config.LOG_INFO,
 
 
-    // Start these browsers, currently available:
-    // - Chrome
-    // - ChromeCanary
-    // - Firefox
-    // - Opera (has to be installed with `npm install karma-opera-launcher`)
-    // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
-    // - PhantomJS
-    // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-    browsers: ['Chrome'],
+		// enable / disable watching file and executing tests whenever any file changes
+
+		preprocessors: {
+			//'test/spec/**/*.coffee': ['coffee'],
+			'.tmp/scripts/**/*.js': ['coverage']
+		},
+
+		coffeePreprocessor: {
+			// options passed to the coffee compiler
+			options: {
+				bare: true,
+				sourceMap: false
+			},
+			// transforming the filenames
+			transformPath: function (path) {
+				return path.replace(/\.coffee$/, '.js');
+			}
+		},
 
 
-    // If browser does not capture in given timeout [ms], kill it
-    captureTimeout: 60000,
+		// Start these browsers, currently available:
+		// - Chrome
+		// - ChromeCanary
+		// - Firefox
+		// - Opera (has to be installed with `npm install karma-opera-launcher`)
+		// - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
+		// - PhantomJS
+		// - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
+		browsers: ['Chrome'],
 
 
-    // Continuous Integration mode
-    // if true, it capture browsers, run tests and exit
-    singleRun: false
-  });
+		// If browser does not capture in given timeout [ms], kill it
+		captureTimeout: 60000,
+		autoWatch: false,
+		client: {
+			captureConsole: true,
+			useIframe: false
+		},
+
+		// Continuous Integration mode
+		// if true, it capture browsers, run tests and exit
+		singleRun: false
+	});
 };

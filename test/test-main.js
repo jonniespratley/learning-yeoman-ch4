@@ -1,8 +1,15 @@
 var tests = Object.keys(window.__karma__.files).filter(function (file) {
-      return /-spec\.js$/.test(file);
+	var isTest = /.tmp\/spec.*.js/.test(file);
+	console.log('File: ' + file, 'isSpec: ' + isTest);
+
+	if (isTest) {
+		return file;
+	}
 });
+
+console.log(tests);
 requirejs.config({
-	baseUrl: '/base/src',
+	baseUrl: 'base/.tmp/scripts',
 	shim: {
 	    "underscore": {
 	      "exports": "_"
@@ -19,10 +26,10 @@ requirejs.config({
 	    }
 	  },
 	  paths: {
-	    "jquery": "../../../app/bower_components/jquery/jquery",
-	    "backbone": "../../../app/bower_components/backbone/backbone",
-	    "underscore": "../../../app/bower_components/underscore/underscore",
-	    "handlebars": "../../../app/bower_components/handlebars/handlebars",
+	    "jquery": "../../app/bower_components/jquery/jquery",
+	    "backbone": "../../app/bower_components/backbone/backbone",
+	    "underscore": "../../app/bower_components/underscore/underscore",
+	    "handlebars": "../../app/bower_components/handlebars/handlebars",
 	    "app": "app"
 	  },
 
