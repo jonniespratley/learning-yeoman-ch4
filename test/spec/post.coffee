@@ -2,11 +2,17 @@ define(['models/post'],(PostModel) ->
 	describe 'PostModel:', ->
 		postModel = null
 		newModel = null
-		
+		extendsSpy = null
+
 		beforeEach ->
 			postModel = new PostModel()
+
+			spyOn(window, "__extends").andCallThrough()
 			spyOn($, "ajax").andCallFake (options) ->
 				options.success()
+
+		it 'should extend the Backbone.Model class', ->
+			expect(window.__extends).toHaveBeenCalled()
 
 		#Default attributes
 		it 'should have default attributes', ->

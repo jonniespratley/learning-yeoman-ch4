@@ -17,7 +17,8 @@ module.exports = function (config) {
 			{pattern: 'app/bower_components/**/*.js', included: false},
 			{pattern: '.tmp/scripts/**/*.js', included: false},
 			{pattern: '.tmp/spec/**/*.js', included: false},
-			'test/test-main.js'
+			{pattern: '.tmp/scripts/config.js', included: true},
+			{pattern: 'test/test-main.js', included: true}
 		],
 
 
