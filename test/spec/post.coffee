@@ -11,7 +11,7 @@ define(['models/post'],(PostModel) ->
 			spyOn($, "ajax").andCallFake (options) ->
 				options.success()
 
-		it 'should extend the Backbone.Model class', ->
+		xit 'should extend the Backbone.Model class', ->
 			expect(window.__extends).toHaveBeenCalled()
 
 		#Default attributes
