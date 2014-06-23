@@ -210,10 +210,10 @@ module.exports = function (grunt) {
 					optimize: 'none',
 					paths: {
 						'templates': '../../.tmp/scripts/templates',
-						'jquery': '../../<%= yeoman.app %>/bower_components/jquery/jquery',
-						'underscore': '../../<%= yeoman.app %>/bower_components/underscore/underscore',
-						'backbone': '../../<%= yeoman.app %>/bower_components/backbone/backbone',
-						'handlebars': '../../<%= yeoman.app %>/bower_components/handlebars/handlebars'
+						'jquery': 'empty:',
+						'underscore': 'empty:',
+						'backbone': 'empty:',
+						'handlebars': 'empty:'
 					},
 					// TODO: Figure out how to make sourcemaps work with grunt-usemin
 					// https://github.com/yeoman/grunt-usemin/issues/30
@@ -355,9 +355,22 @@ module.exports = function (grunt) {
 		}
 	});
 
-	grunt.registerTask('build', ['clean:dist', 'coffee', 'createDefaultTemplate', 'handlebars', 'useminPrepare', 'requirejs',
+	grunt.registerTask('build', [
+        'clean:dist',
+        'coffee',
+        'createDefaultTemplate',
+        'handlebars',
+        'useminPrepare',
+        'requirejs',
 		// 'imagemin',
-		'htmlmin', 'concat', 'cssmin', 'uglify', 'copy', 'rev', 'usemin']);
+		'htmlmin',
+        'concat',
+        'cssmin',
+       // 'uglify',
+        'copy',
+        'rev',
+        'usemin'
+    ]);
 
 	grunt.registerTask('default', ['jshint', 'test', 'build']);
 	grunt.registerTask('heroku:development', ['build']);

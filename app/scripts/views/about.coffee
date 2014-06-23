@@ -1,11 +1,9 @@
-define ['jquery', 'underscore', 'backbone','templates'], ($, _, Backbone, JST) ->
-	class AboutView extends Backbone.View
-		template: JST['app/scripts/templates/about.hbs']
-		initialize: () ->
-			console.log 'initialize About'
-			console.log @
-		render: () ->
-			@$el.html(@template(title: 'About'))
-			return @
-		
-	
+define ['jquery', 'backbone','templates'], ($, Backbone, JST) ->
+ Backbone.View.extend(
+	template: JST['app/scripts/templates/about.hbs']
+	initialize: () ->
+	 console.log('initialize AboutView', @)
+	render: () ->
+	 @$el.html(@template(title: 'About'))
+	 return @
+ )
