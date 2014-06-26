@@ -23,16 +23,16 @@ define(['jquery', 'backbone', 'underscore', 'routes/app'], ($, Backbone, _, AppR
 			router.navigate('_SpecRunner.html')
 
 		it "should have the right amount of routes", ->
-			expect(_.size(router.routes)).toEqual 6
+			expect(_.size(router.routes)).toBeGreaterThan 6
 
 		it 'should handle index route', ->
 			expect(navigate('index')).toBe(true)
 
 		it 'should handle about route', ->
-			rexpect(navigate('about')).toBe(true)
+			expect(navigate('about')).toBe(true)
 
 		it 'should handle posts route', ->
-			rexpect(navigate('posts')).toBe(true)
+			expect(navigate('posts')).toBe(true)
 
 
 		it 'should not handle unknown', ->
