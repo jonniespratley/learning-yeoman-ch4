@@ -83,7 +83,7 @@ module.exports = function (config) {
 		captureTimeout: 60000,
 		autoWatch: false,
 		client: {
-			captureConsole: true,
+			captureConsole: false,
 			useIframe: false
 		},
 

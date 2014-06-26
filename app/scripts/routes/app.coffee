@@ -22,30 +22,30 @@ define [
 			'posts/:id': 'postDetail'
 			'posts/:id/edit': 'postEdit'
 		index: () ->
-			console.log('#/index route')
+			#console.log('#/index route')
 			App = new AppView(el: '.container', model: Config)
 			@showView(new MainView(el: '.content', model: Config))
 
 		about: () ->
-			console.log('#/about route')
+			#console.log('#/about route')
 			@showView(new AboutView(el: '.content'))
 
 		posts: () ->
-			console.log('posts view')
+			#console.log('posts view')
 			@showView(new PostsView(el: '.content'))
 
 		postDetail: (id) ->
 			post = new PostModel(_id: id)
-			console.log('show post detail', post)
+			#console.log('show post detail', post)
 			@showView(new PostDetailView(el: '.content', model: post))
 
 		postEdit: (id) ->
 			post = new PostModel(_id: id)
-			console.log('show post edit', post)
+			#console.log('show post edit', post)
 			@showView(new PostFormView(el: '.content', model: post))
 
 		postNew: () ->
-			console.log('show post form')
+			#console.log('show post form')
 			@showView(new PostFormView(el: '.content'))
 
 		showView: (view) ->
@@ -53,5 +53,5 @@ define [
 			@currentView.close() if @currentView
 			@currentView = view
 			@currentView.render()
-			console.log('App.showView', @)
+			#console.log('App.showView', @)
 	)
