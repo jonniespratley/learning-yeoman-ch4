@@ -1,11 +1,12 @@
+/* global target */
 'use strict';
 var LIVERELOAD_PORT = 35729;
 var SERVER_PORT = 9000;
-var lrSnippet = require('connect-livereload')({
+var lrSnippet = require( 'connect-livereload' )( {
 	port: LIVERELOAD_PORT
-});
+} );
 var mountFolder = function (connect, dir) {
-	return connect.static(require('path').resolve(dir));
+	return connect.static( require( 'path' ).resolve( dir ) );
 };
 
 var serverEndpoint = 'http://jonniespratley.me:8181/api/v2/learning-yeoman';
@@ -24,11 +25,11 @@ var proxyConfig = {
 // 'test/spec/**/*.js'
 // templateFramework: 'handlebars'
 module.exports = function (grunt) {
-	grunt.loadNpmTasks('grunt-connect-proxy');
+	grunt.loadNpmTasks( 'grunt-connect-proxy' );
 	// show elapsed time at the end
-	require('time-grunt')(grunt);
+	require( 'time-grunt' )( grunt );
 	// load all grunt tasks
-	require('load-grunt-tasks')(grunt);
+	require( 'load-grunt-tasks' )( grunt );
 
 	// configurable paths
 	var yeomanConfig = {
@@ -37,7 +38,7 @@ module.exports = function (grunt) {
 		test: 'test'
 	};
 
-	grunt.initConfig({
+	grunt.initConfig( {
 		yeoman: yeomanConfig,
 		watch: {
 			options: {
@@ -56,16 +57,22 @@ module.exports = function (grunt) {
 				options: {
 					livereload: LIVERELOAD_PORT
 				},
-				files: ['<%= yeoman.app %>/*.html', '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css', '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js', '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}', '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}', 'test/spec/**/*.js']
+				files: [
+					'<%= yeoman.app %>/*.html', '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
+					'{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js', '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+					'<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}', 'test/spec/**/*.js'
+				]
 			},
 			handlebars: {
 				files: ['<%= yeoman.app %>/scripts/templates/*.hbs'],
 				tasks: ['handlebars']
 			},
 			test: {
-				files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee',
+				files: [
+					'<%= yeoman.app %>/scripts/{,*/}*.coffee',
 
-					'test/spec/**/*.coffee'],
+					'test/spec/**/*.coffee'
+				],
 				tasks: ['test:true']
 			}
 		},
@@ -79,9 +86,10 @@ module.exports = function (grunt) {
 				options: {
 					middleware: function (connect) {
 						return [
-							require('json-proxy').initialize(proxyConfig),
+							require( 'json-proxy' ).initialize( proxyConfig ),
 							lrSnippet,
-							mountFolder(connect, '.tmp'), mountFolder(connect, yeomanConfig.app)];
+							mountFolder( connect, '.tmp' ), mountFolder( connect, yeomanConfig.app )
+						];
 					}
 				}
 			},
@@ -90,7 +98,9 @@ module.exports = function (grunt) {
 					port: 9001,
 					middleware: function (connect) {
 						return [
-							lrSnippet, mountFolder(connect, '.tmp'), mountFolder(connect, '.grunt'), mountFolder(connect, 'test'), mountFolder(connect, yeomanConfig.app)];
+							lrSnippet, mountFolder( connect, '.tmp' ), mountFolder( connect, '.grunt' ),
+							mountFolder( connect, 'test' ), mountFolder( connect, yeomanConfig.app )
+						];
 					}
 				}
 			},
@@ -98,7 +108,8 @@ module.exports = function (grunt) {
 				options: {
 					middleware: function (connect) {
 						return [
-							mountFolder(connect, yeomanConfig.dist)];
+							mountFolder( connect, yeomanConfig.dist )
+						];
 					}
 				}
 			}
@@ -118,9 +129,12 @@ module.exports = function (grunt) {
 		jshint: {
 			options: {
 				jshintrc: '.jshintrc',
-				reporter: require('jshint-stylish')
+				reporter: require( 'jshint-stylish' )
 			},
-			all: ['Gruntfile.js', '<%= yeoman.app %>/scripts/{,*/}*.js', '!<%= yeoman.app %>/scripts/vendor/*', 'test/spec/{,*/}*.js']
+			all: [
+				'Gruntfile.js', '<%= yeoman.app %>/scripts/{,*/}*.js', '!<%= yeoman.app %>/scripts/vendor/*',
+				'test/spec/{,*/}*.js'
+			]
 		},
 		karma: {
 			unit: {
@@ -140,7 +154,7 @@ module.exports = function (grunt) {
 						'<%= yeoman.app %>/bower_components/jquery/jquery.js',
 						//	'<%= yeoman.test %>/bower_components/jasmine-jquery/lib/jasmine-jquery.js'
 					],
-					template: require('grunt-template-jasmine-requirejs'),
+					template: require( 'grunt-template-jasmine-requirejs' ),
 					templateOptions: {
 						requireConfigFile: '.tmp/scripts/main.js',
 						requireConfig: {
@@ -174,7 +188,6 @@ module.exports = function (grunt) {
 				bare: true,
 				sourceMap: false
 			},
-
 
 			dist: {
 				files: [
@@ -289,7 +302,7 @@ module.exports = function (grunt) {
 						dot: true,
 						cwd: '<%= yeoman.app %>',
 						dest: '<%= yeoman.dist %>',
-						src: ['*.{ico,txt}', '.htaccess', 'images/{,*/}*.{webp,gif}', 'styles/fonts/{,*/}*.*', ]
+						src: ['*.{ico,txt}', '.htaccess', 'images/{,*/}*.{webp,gif}', 'styles/fonts/{,*/}*.*',]
 					}
 				]
 			}
@@ -313,66 +326,74 @@ module.exports = function (grunt) {
 		rev: {
 			dist: {
 				files: {
-					src: ['<%= yeoman.dist %>/scripts/{,*/}*.js', '<%= yeoman.dist %>/styles/{,*/}*.css', '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}', '/styles/fonts/{,*/}*.*', ]
+					src: [
+						'<%= yeoman.dist %>/scripts/{,*/}*.js', '<%= yeoman.dist %>/styles/{,*/}*.css',
+						'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}', '/styles/fonts/{,*/}*.*',
+					]
 				}
 			}
 		}
-	});
+	} );
 
-	grunt.registerTask('createDefaultTemplate', function () {
-		grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
-	});
+	grunt.registerTask( 'createDefaultTemplate', function () {
+		grunt.file.write( '.tmp/scripts/templates.js', 'this.JST = this.JST || {};' );
+	} );
 
-	grunt.registerTask('server', function () {
-		grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-		grunt.task.run(['serve:' + target]);
-	});
+	grunt.registerTask( 'server', function () {
+		grunt.log.warn( 'The `server` task has been deprecated. Use `grunt serve` to start a server.' );
+		grunt.task.run( ['serve:' + target] );
+	} );
 
-	grunt.registerTask('serve', function (target) {
+	grunt.registerTask( 'serve', function (target) {
 		if (target === 'dist') {
-			return grunt.task.run(['build', 'open:server', 'connect:dist:keepalive']);
+			return grunt.task.run( ['build', 'open:server', 'connect:dist:keepalive'] );
 		}
 
 		if (target === 'test') {
-			return grunt.task.run(['clean:server', 'coffee', 'createDefaultTemplate', 'handlebars', 'connect:test', 'open:test', 'watch:livereload']);
+			return grunt.task.run( [
+				'clean:server', 'coffee', 'createDefaultTemplate', 'handlebars', 'connect:test', 'open:test', 'watch:livereload'
+			] );
 		}
 
-		grunt.task.run(['clean:server', 'coffee:dist', 'createDefaultTemplate', 'handlebars', 'connect:livereload', 'open:server', 'watch']);
-	});
+		grunt.task.run( [
+			'clean:server', 'coffee:dist', 'createDefaultTemplate', 'handlebars', 'connect:livereload', 'open:server', 'watch'
+		] );
+	} );
 
-	grunt.registerTask('test', function (isConnected) {
-		isConnected = Boolean(isConnected);
-		var testTasks = ['clean:server', 'coffee', 'createDefaultTemplate', 'handlebars', 'jasmine'
+	grunt.registerTask( 'test', function (isConnected) {
+		isConnected = Boolean( isConnected );
+		var testTasks = [
+			'clean:server', 'coffee', 'createDefaultTemplate', 'handlebars', 'jasmine'
 			//  'watch'
 		];
 
 		if (!isConnected) {
-			return grunt.task.run(testTasks);
+			return grunt.task.run( testTasks );
 		} else {
 			// already connected so not going to connect again, remove the connect:test task
-			testTasks.splice(testTasks.indexOf('connect:test'), 1);
-			return grunt.task.run(testTasks);
+			testTasks.splice( testTasks.indexOf( 'connect:test' ), 1 );
+			return grunt.task.run( testTasks );
 		}
-	});
+	} );
 
-	grunt.registerTask('build', [
-        'clean:dist',
-        'coffee',
-        'createDefaultTemplate',
-        'handlebars',
-        'useminPrepare',
-        'requirejs',
+	grunt.registerTask( 'build', [
+		'clean:dist',
+		'coffee',
+		'createDefaultTemplate',
+		'handlebars',
+		'useminPrepare',
+		'requirejs',
 		// 'imagemin',
 		'htmlmin',
-        'concat',
-        'cssmin',
-       // 'uglify',
-        'copy',
-        'rev',
-        'usemin'
-    ]);
+		'concat',
+		'cssmin',
+		// 'uglify',
+		'copy',
+		'rev',
+		'usemin'
+	] );
 
-	grunt.registerTask('default', ['jshint', 'test', 'build']);
-	grunt.registerTask('heroku:development', ['build']);
+	grunt.registerTask( 'default', ['jshint', 'test', 'build'] );
+	grunt.registerTask( 'heroku:development', ['build'] );
 
 };
