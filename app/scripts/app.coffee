@@ -1,34 +1,34 @@
-define(() ->
- ###
- App - This is the global app object that contains all classes.
- ###
- App =
-  Model: Model
-  Models: {}
-  Collection: Collection
-  Collections: {}
-  View: View
-  Views: {}
-  Router: Router
-  Routers: {}
-  session: {}
-  debug: true
-  init: ->
-    @log 'Hello from Backbone!', @
-    return @
-  
-  log: (args) ->
-    console.log args, arguments if @debug
-    
-  #Method to help cleanup zombie views
-  showView: (view) ->
-    @log('show view',@currentView, view)
-    
-    @currentView.close() if @currentView
-    @currentView = view
-    @currentView.render()
-    
-    $('.pages').html(@currentView.$el)
-    
+define([
+	'jquery'
+	'underscore'
+	'backbone'
+	'handlebars'
+	'templates'
+	], ($, _, Backbone, Handlebars, JST) ->
 
+	App = App or {}
+	App.Config or (App.Config = {})
+	App.Models or (App.Models = {})
+	App.Collections or (App.Collections = {})
+	App.Routers or (App.Routers = {})
+	App.Views or (App.Views = {})
+	App.Templates or (App.Templates = {})
+
+	App.bootstrap =  (config, router) ->
+		@config = config if config
+		if router
+			@router = new router()
+			Backbone.history.start()
+		return @
+
+	App.log = () ->
+		console?.log(arguments) if @debug
+
+	#Pub/Sub with Backbone.Events
+	App.pubsub = _.extend({}, Backbone.Events)
+	App.pubsub.bind('fetch:posts', (data) ->
+		alert data
+	)
+
+	return App
 )

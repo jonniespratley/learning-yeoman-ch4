@@ -18,10 +18,17 @@ require.config
     backbone: '../bower_components/backbone/backbone'
     underscore: '../bower_components/underscore/underscore'
     handlebars: '../bower_components/handlebars/handlebars'
-
 require [
-  'backbone'
-  'app'
-], (Backbone, App) ->
-  Backbone.history.start()
-  window.App = App.init()
+	'backbone'
+	'app'
+	'routes/app'
+], (Backbone, App, AppRouter) ->
+
+	Backbone.View::close = ->
+		@unbind()
+		@onClose() if @onClose
+
+	App.router = new AppRouter()
+	window.App = App
+
+	Backbone.history.start()

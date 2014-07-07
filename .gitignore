@@ -1,3 +1,6 @@
+
+.idea/misc.xml
+
 node_modules
 dist
 test/temp
@@ -5,3 +8,9 @@ test/temp
 app/bower_components
 .tmp
 test/bower_components/
+.idea/.workspace.xml
+.idea/*
+.grunt
+.project
+_SpecRunner.html
+coverage

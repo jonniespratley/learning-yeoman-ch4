@@ -2,8 +2,8 @@
   "generator-backbone": {
     "appPath": "app",
     "coffee": true,
-    "testFramework": "mocha",
-    "templateFramework": "lodash",
+    "testFramework": "jasmine",
+    "templateFramework": "handlebars",
     "compassBootstrap": false,
     "includeRequireJS": true
   }
