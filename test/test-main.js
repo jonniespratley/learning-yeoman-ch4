@@ -26,7 +26,7 @@ requirejs.config({
 	    }
 	  },
 	  paths: {
-	    "jquery": "../../app/bower_components/jquery/dist/jquery",
+	    "jquery": "../../app/bower_components/jquery/jquery",
 	    "backbone": "../../app/bower_components/backbone/backbone",
 	    "underscore": "../../app/bower_components/underscore/underscore",
 	    "handlebars": "../../app/bower_components/handlebars/handlebars",

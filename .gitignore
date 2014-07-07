@@ -1,6 +1,5 @@
 
 .idea/misc.xml
-
 node_modules
 dist
 test/temp
@@ -14,4 +13,3 @@ test/bower_components/
 .project
 _SpecRunner.html
 coverage
-

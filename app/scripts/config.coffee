@@ -1,9 +1,9 @@
 define(() ->
 	return window.Config =
 		baseurl: document.location.origin
-		sitetitle: "Learning Yeoman"
+		sitetitle: "Learning Yeoman - Chapter 4"
 		sitedesc: "a starting point for a modern backbone.js application."
-		sitecopy: "2014 Copywrite"
+		sitecopy: "2014 Copyright"
 		version: '0.0.1'
 		email: "admin@email.com"
 		debug: true
@@ -18,7 +18,7 @@ define(() ->
 		,
 			title: "BackboneJS"
 			body: "Backbone.js gives structure to web applications by providing..."
-			image: "https://dl.dropboxusercontent.com/u/26906414/cdn/img/learning-yeoman/feature-backbone.png"
+			image: "http://goo.gl/94Pe0E"
 		,
 			title: "RequireJS"
 			body: "RequireJS is a JavaScript file and module loader..."
