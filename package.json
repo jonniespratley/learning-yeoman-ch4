@@ -1,6 +1,7 @@
 {
   "name": "learning-yeoman-ch4",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "This is the demo application for Learning Yeoman Chapter 4.",
   "repository": {
     "type": "git",
     "url": "https://github.com/jonniespratley/learning-yeoman-ch4.git"
