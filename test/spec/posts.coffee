@@ -3,9 +3,9 @@ define(['collections/posts'],(PostsCollection) ->
 	
 	describe 'Post Collection:', ->
 		beforeEach ->
-			spyOn($, "ajax").andCallFake (options) ->
-				options.success()
 			postsCollection = new PostsCollection()
+			spyOn($, "ajax").andCallFake (options) -> options.success()
+			
 
 		it 'should add a model as an object to the collection', ->
 			expect(postsCollection.length).toBe(0)
@@ -20,7 +20,7 @@ define(['collections/posts'],(PostsCollection) ->
 			])
 			expect(postsCollection.length).toBe(2)
 
-		it 'should send a GET request to correct URL', ->
+		xit 'should send a GET request to correct URL', ->
 			postsCollection.fetch()
 			request = $.ajax.mostRecentCall.args[0]
 			expect(request.url).toEqual('/api/v2/learning-yeoman-ch3/posts');

@@ -17,7 +17,7 @@ define(['jquery', 'backbone', 'underscore', 'routes/app'], ($, Backbone, _, AppR
 				Backbone.history.start(slient: true, pushState: false)
 				router.navigate('_SpecRunner.html')
 			catch error
-				console.log error.message
+				#console.log error.message
 
 		afterEach ->
 			router.navigate('_SpecRunner.html')

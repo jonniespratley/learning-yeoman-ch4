@@ -9,14 +9,13 @@ var mountFolder = function (connect, dir) {
 	return connect.static( require( 'path' ).resolve( dir ) );
 };
 
-var serverEndpoint = 'http://jonniespratley.me:8181/api/v2/learning-yeoman';
+var serverEndpoint = 'http://localhost:9191';
 var proxyConfig = {
 	proxy: {
 		forward: {
 			'/api': serverEndpoint
 		}
 	}
-
 };
 
 // # Globbing
@@ -358,6 +357,7 @@ module.exports = function (grunt) {
 		}
 
 		grunt.task.run( [
+      'configureProxies',
 			'clean:server', 'coffee:dist', 'createDefaultTemplate', 'handlebars', 'connect:livereload', 'open:server', 'watch'
 		] );
 	} );

@@ -5,7 +5,7 @@ module.exports = function (config) {
 	config.set({
 
 		// base path, that will be used to resolve files and exclude
-		basePath: '',
+		basePath: '.',
 
 
 		// frameworks to use
@@ -24,7 +24,7 @@ module.exports = function (config) {
 
 		// list of files to exclude
 		exclude: [
-			//'.tmp/scripts/main.js'
+			'.tmp/scripts/main.js',
 			'app/bower_components/jasmine-jquery/spec'
 		],
 
@@ -47,7 +47,7 @@ module.exports = function (config) {
 
 		// level of logging
 		// possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-		logLevel: config.LOG_DEBUG,
+		logLevel: config.LOG_INFO,
 
 
 		// enable / disable watching file and executing tests whenever any file changes

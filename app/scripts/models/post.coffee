@@ -12,7 +12,7 @@ define ['backbone'], (Backbone) ->
 			modified: null
 			published: true
 		initialize: ->
-			console.log @
+			#console.log @
 		validate: (attrs, options)->
 			if attrs.title is ''
 				'You must provide a title.'

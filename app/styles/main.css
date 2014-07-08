@@ -2,15 +2,8 @@
 body {
     background: #fafafa;
 }
+ 
 
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
-}
-
-@import url('./bootstrap.min.css');
-
-/*@import url('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css');*/
 
 body {
     padding: 10px 25px;
@@ -60,8 +53,6 @@ body {
 }
 
 footer {
-
-
     color: #777 !important;
     text-align: center;
 }
@@ -73,4 +64,5 @@ footer {
 .page-header {
     margin: 15px 0;
 }
->>>>>>> develop
+
+

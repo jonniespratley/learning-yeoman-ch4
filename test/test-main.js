@@ -1,15 +1,15 @@
 var tests = Object.keys(window.__karma__.files).filter(function (file) {
 	var isTest = /.tmp\/spec.*.js/.test(file);
-	console.log('File: ' + file, 'isSpec: ' + isTest);
+	//console.log('File: ' + file, 'isSpec: ' + isTest);
 
 	if (isTest) {
 		return file;
 	}
 });
 
-console.log(tests);
+
 requirejs.config({
-	baseUrl: 'base/.tmp/scripts',
+	baseUrl: '/base/.tmp/scripts',
 	shim: {
 	    "underscore": {
 	      "exports": "_"
