@@ -9,7 +9,7 @@ var mountFolder = function (connect, dir) {
 	return connect.static( require( 'path' ).resolve( dir ) );
 };
 
-var serverEndpoint = 'http://localhost:9191';
+var serverEndpoint = 'http://localhost:9090';
 var proxyConfig = {
 	proxy: {
 		forward: {
@@ -356,8 +356,9 @@ module.exports = function (grunt) {
 			] );
 		}
 
-		grunt.task.run( ['configureProxies', 'clean:server', 'coffee:dist', 'createDefaultTemplate', 'handlebars', 'connect:livereload', 'open:server', 'watch'
-		] );
+		grunt.task.run( [
+      'configureProxies', 'clean:server', 'coffee:dist', 'createDefaultTemplate', 'handlebars', 'connect:livereload', 'open:server', 'watch'
+    ] );
 	} );
 
 	grunt.registerTask( 'test', function (isConnected) {
