@@ -356,9 +356,7 @@ module.exports = function (grunt) {
 			] );
 		}
 
-		grunt.task.run( [
-      'configureProxies',
-			'clean:server', 'coffee:dist', 'createDefaultTemplate', 'handlebars', 'connect:livereload', 'open:server', 'watch'
+		grunt.task.run( ['configureProxies', 'clean:server', 'coffee:dist', 'createDefaultTemplate', 'handlebars', 'connect:livereload', 'open:server', 'watch'
 		] );
 	} );
 
