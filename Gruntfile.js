@@ -9,7 +9,7 @@ var mountFolder = function (connect, dir) {
 	return connect.static( require( 'path' ).resolve( dir ) );
 };
 
-var serverEndpoint = 'http://localhost:9090';
+var serverEndpoint = 'http://localhost:5000';
 var proxyConfig = {
 	proxy: {
 		forward: {
@@ -224,10 +224,11 @@ module.exports = function (grunt) {
 					optimize: 'none',
 					paths: {
 						'templates': '../../.tmp/scripts/templates',
-						'jquery': 'empty:',
-						'underscore': 'empty:',
-						'backbone': 'empty:',
-						'handlebars': 'empty:'
+						jquery: '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
+						require: '../../<%= yeoman.app %>/bower_components/requirejs/require',
+						backbone: '../../<%= yeoman.app %>/bower_components/backbone/backbone',
+						underscore: '../../<%= yeoman.app %>/bower_components/underscore/underscore',
+						handlebars: '../../<%= yeoman.app %>/bower_components/handlebars/handlebars'
 					},
 					// TODO: Figure out how to make sourcemaps work with grunt-usemin
 					// https://github.com/yeoman/grunt-usemin/issues/30
@@ -303,7 +304,7 @@ module.exports = function (grunt) {
 						dot: true,
 						cwd: '<%= yeoman.app %>',
 						dest: '<%= yeoman.dist %>',
-						src: ['*.{ico,txt}', '.htaccess', 'images/{,*/}*.{webp,gif}', 'styles/fonts/{,*/}*.*',]
+						src: ['*.{ico,txt}', '.htaccess', 'images/{,*/}*.{webp,gif}', 'styles/fonts/{,*/}*.*', 'bower_components/requirejs/*.*']
 					}
 				]
 			}
