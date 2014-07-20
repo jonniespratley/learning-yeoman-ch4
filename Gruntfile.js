@@ -24,7 +24,6 @@ var proxyConfig = {
 // use this if you want to match all subfolders:
 // 'test/spec/**/*.js'
 // templateFramework: 'handlebars'
-
 module.exports = function (grunt) {
 	grunt.loadNpmTasks( 'grunt-connect-proxy' );
 	// show elapsed time at the end
@@ -158,6 +157,7 @@ module.exports = function (grunt) {
 					template: require( 'grunt-template-jasmine-requirejs' ),
 					templateOptions: {
 						requireConfigFile: '.tmp/scripts/main.js',
+						//requireConfigFile: 'test/test-config.js',
 						requireConfig: {
 							baseUrl: '.tmp/scripts',
 							shim: {
@@ -173,7 +173,7 @@ module.exports = function (grunt) {
 								}
 							},
 							paths: {
-								jquery: '../../<%= yeoman.app %>/bower_components/jquery/jquery',
+								jquery: '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
 								backbone: '../../<%= yeoman.app %>/bower_components/backbone/backbone',
 								underscore: '../../<%= yeoman.app %>/bower_components/underscore/underscore',
 								handlebars: '../../<%= yeoman.app %>/bower_components/handlebars/handlebars',
@@ -356,9 +356,7 @@ module.exports = function (grunt) {
 			] );
 		}
 
-		grunt.task.run( [
-      'configureProxies', 'clean:server', 'coffee:dist', 'createDefaultTemplate', 'handlebars', 'connect:livereload', 'open:server', 'watch'
-    ] );
+		grunt.task.run( ['configureProxies', 'clean:server', 'coffee:dist', 'createDefaultTemplate', 'handlebars', 'connect:livereload', 'open:server', 'watch'] );
 	} );
 
 	grunt.registerTask( 'test', function (isConnected) {

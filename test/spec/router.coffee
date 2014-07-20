@@ -1,9 +1,9 @@
-define(['jquery', 'backbone', 'underscore', 'routes/app'], ($, Backbone, _, AppRouter) ->
+define(['jquery', 'underscore', 'backbone', 'routes/app'], ($, _, Backbone, AppRouter) ->
 	router = null
 	routerSpy = null
 	navigate = null
 
-	describe "AppRouter:", ->
+	describe 'AppRouter:', ->
 		beforeEach ->
 			router = new AppRouter()
 			routerSpy = jasmine.createSpy()
@@ -22,7 +22,7 @@ define(['jquery', 'backbone', 'underscore', 'routes/app'], ($, Backbone, _, AppR
 		afterEach ->
 			router.navigate('_SpecRunner.html')
 
-		it "should have the right amount of routes", ->
+		it 'should have the correct # of routes', ->
 			expect(_.size(router.routes)).toBeGreaterThan 6
 
 		it 'should handle index route', ->
@@ -34,7 +34,7 @@ define(['jquery', 'backbone', 'underscore', 'routes/app'], ($, Backbone, _, AppR
 		it 'should handle posts route', ->
 			expect(navigate('posts')).toBe(true)
 
-		it 'should not handle unknown', ->
+		it 'should not handle unknown route', ->
 			router.bind('route:route-doesnt-exist', routerSpy)
 			router.navigate('#route-doesnt-exist', true)
 			expect(routerSpy.wasCalled).toBe(false)
