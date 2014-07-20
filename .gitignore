@@ -1,8 +1,14 @@
 node_modules
-#dist
 _SpecRunner.html
 test/temp
+coverage
+#Build files
 .sass-cache
-app/bower_components
 .tmp
+.grunt
+
+
+app/bower_components
+
+#Bower Components
 test/bower_components/
