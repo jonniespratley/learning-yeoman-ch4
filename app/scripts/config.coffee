@@ -1,7 +1,7 @@
 define(() ->
 	return window.Config =
 		baseurl: document.location.origin
-		sitetitle: "Learning Yeoman - Chapter 4"
+		sitetitle: "Learning Yeoman"
 		sitedesc: "a starting point for a modern backbone.js application."
 		sitecopy: "2014 Copyright"
 		version: '0.0.1'
