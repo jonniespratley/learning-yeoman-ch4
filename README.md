@@ -1,13 +1,41 @@
-#learning-yeoman-ch4
-===============
+# learning-yeoman-ch4
+This is the tutorial for Chapter 4 in the Learning Yeoman book.
 
-[![Build Status](https://travis-ci.org/jonniespratley/learning-yeoman-ch4.png?branch=develop)](https://travis-ci.org/jonniespratley/learning-yeoman-ch4)
+## Getting Started
+First you need to install the node dependencies and the bower dependencies, then build, test and run the application. 
 
+1. Install node dependencies.
+	
+	```
+	$ npm install 
+	```
 
+	> Might need to be administrator user
 
-## Grunt Mods
-The following is the modifications done to get everything working seamless.
+2. Install bower dependencies.
 
-* Removed imagemin - Issues being installed on travisci.com
-* Install grunt-jasmine template `npm install grunt-template-jasmine-requirejs --save-dev`
+	```
+	$ bower install
+	```
 
+3. Build and Test.
+
+	```
+	$ grunt
+	```
+
+4. Run Preview server.
+	
+	```
+	$ grunt serve
+	```
+
+	> Open your browser to http://localhost:9000
+
+5. Run Live server.
+
+	```
+	$ npm start
+	```
+
+	> Open your browser to http://localhost:5000
