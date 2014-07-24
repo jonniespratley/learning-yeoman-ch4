@@ -224,7 +224,7 @@ module.exports = function (grunt) {
 					optimize: 'none',
 					paths: {
 						'templates': '../../.tmp/scripts/templates',
-						jquery: '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
+						jquery: '../../<%= yeoman.app %>/bower_components/jquery/jquery',
 						require: '../../<%= yeoman.app %>/bower_components/requirejs/require',
 						backbone: '../../<%= yeoman.app %>/bower_components/backbone/backbone',
 						underscore: '../../<%= yeoman.app %>/bower_components/underscore/underscore',
