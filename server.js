@@ -2,7 +2,6 @@
 var express = require("express");
 var logfmt = require("logfmt");
 var app = express();
-var config = JSON.parse(fs.readFileSync('app/config.json'));
 
 app.use(logfmt.requestLogger());
 app.use(express.static(__dirname + '/dist'));
